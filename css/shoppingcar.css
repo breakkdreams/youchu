@@ -1,0 +1,206 @@
+@charset "utf-8";
+/* 购物车*/
+.bigBox{ width:1000px; margin-left:auto; margin-right:auto;}
+.shopping_location{width:1000px; border-bottom:solid 1px #e5e5e5; float:left; margin-top:20px;}
+.shopping_location p{float:left;font-family:"微软雅黑"; color:#4d4d4d;font-size:14px; line-height:30px;}
+.shopping_location a{ font-family:"微软雅黑"; color:#4d4d4d;font-size:14px; margin-left:10px; font-weight:bold;}
+.accountDown{
+	width: 998px;
+	border: solid 1px #dedede;
+	float: left;
+	background-color: #fafafa;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.accountDown_title{
+	float: left;
+	border-bottom: solid 2px #cccccc;
+	width: 898px;
+	margin-bottom: 30px;
+	margin-left: 50px;
+}
+.accountDown_title p{float:left;font-family:"微软雅黑"; font-size:18px; color:#4c4c4c; line-height:50px;}
+.product_box{
+	width: 158px;
+	float: left;
+	margin: 0 11px;
+	margin-bottom: 30px;
+}
+.product_img{float:left; width:158px; height:158px; border:solid 1px #e6e6e6}
+.product_img img{float:left; width:158px; height:158px;}
+.product_oneP{margin-left:10px; width:148px; color:#333333; float:left; line-height:20px; margin:10px 6px; height:45px;}
+.product_oneP a{color:#333333; line-height:20px;}
+.product_secondP{margin-left:10px;color:#c40000; float:left; font-family:"微软雅黑"; font-size:18px; line-height:20px;}
+.product_thirdP{float:right;line-height:20px; color:#999999; margin-right:20px; }
+.productList{float:left; margin-left:30px;}
+
+.shopping_main{float:left; width:1000px; margin-bottom:30px;}
+.shopping_title{float:left; margin-top:25px; width:1000px;}
+.chooseP{ float:left; width:150px; text-align:center}
+.chooseP a{font-family:"微软雅黑"; color:#666666;font-size:15px; line-height:40px; margin:10px;}
+.shoppingA{color:#c40000;}
+.shoppingP{border-bottom:solid 2px #c40000;}
+.shopping_rightP{float:left; line-height:40px; margin-left:350px;}
+.shopping_title input{float:left; margin-top:8px; margin-left:15px;}
+.shopping_rightP span{font-family:"微软雅黑"; }
+.account_list{float:left; margin-top:20px;}
+
+.shopping_Box{float:left; margin-top:20px; width:1000px;}
+.shopping_list{float:left; width:1000px; height:40px; border-bottom:solid 1px #dcdcdc;}
+.allchoose{ float:left; width:180px; margin-left:30px;}
+.allchooseA{color:#333333;text-align:center; line-height:40px;}
+.allchoose input{float:left; margin-top:13px;width:40px;}
+.allchoose img{float:left; width:99px; height:99px; border:solid 1px #dcdcdc; margin-top:25px;}
+.shopping_list p{float:left; color:#333333;text-align:center; line-height:40px;}
+.p_1{width:200px;}.p_2{width:180px;text-align:center;}.p_3{width:160px;text-align:center;}.p_4{width:140px;text-align:center;}.p_5{width:100px;}
+.shopping_infor{float:left; width:1000px;height:150px; border-bottom:solid 1px #dcdcdc;}
+.shopping_infor p{float:left;font-family:"微软雅黑"; color:#4c4c4c;font-size:14px;  line-height:150px;}
+.shopping_infor span{font-family:"微软雅黑";font-size:14px;  line-height:150px; text-decoration:line-through; color:#808080; margin-left:10px; font-weight:normal;}
+.p_1 a{color:#808080}
+.p_5 .shoucangA{font-family:"微软雅黑"; color:#4c4c4c;font-size:14px; line-height:30px; float:left;margin-top: 8px;}
+.p_1 .inforA{font-family:"微软雅黑"; color:#4c4c4c;font-size:14px; line-height:25px; float:left;width: 200px;}
+.shopping_infor .number_p{margin-top:60px; padding-left:40px; width:120px;}
+.p_3 input{ float:left; width:25px; height:24px; border:none; background-color:#ffffff; border: solid 1px #808080; line-height:25px;font-family:Arial, Helvetica, sans-serif;font-size:14px; text-align:center;}
+.p_3 .textInput{height:22px; border-left: none; border-right: none; width:35px; outline:none;}
+.shopping_infor .p_price{color:#c40000; font-weight:bold}
+.shopping_infor .p_price_now{font-weight:bold}
+.fail{ background-color:#eeeeee;}
+.p_infor{line-height:40px; float:left; margin-top:30px;}
+.shopping_infor .failText{color:#b2b2b2;}
+.kinds{float:left; width:850px;}
+.kinds a{color:#333333; text-align:center; line-height:40px; margin-right:30px; float:left}
+.kinds span{font-family:"微软雅黑";color:#333333;text-align:center; line-height:40px; margin-right:30px; font-size:16px; color:#c40000;}
+.kinds input{margin-top:8px;}
+
+/*确认订单*/
+.p_one{width:540px; float:left}.p_two{width:200px;text-align:center;}.p_three{width:120px;text-align:center;}.p_four{width:130px;text-align:center;}
+.p_one img{float:left; width:99px; height:99px; border:solid 1px #dcdcdc; margin-top:25px; margin-left:20px;}
+.p_one a{color:#808080; float:left; line-height:150px;}
+.p_one .inforA{font-family:"微软雅黑"; color:#4c4c4c;font-size:14px; line-height:25px; float:left; width:260px; line-height:30px; padding:45px 0px; height:150px; margin-left:50px;
+ margin-right:50px;}
+ 
+.clearBox{ float:right;}
+.clearBox input{float:left; margin-right:10px;}
+.leftDiv p{float:left;font-family:"微软雅黑"; color:#4c4c4c;font-size:14px;line-height:60px;}
+.leftDiv{float:left; width:250px; margin-right:40px; margin-top:5px;}
+.leftDiv span{font-family:"微软雅黑"; color:#c40000;font-size:14px; line-height:60px;}
+.leftDiv .jifen{width:30px; height:18px; margin-top:18px; line-height:20px;}
+.rightDiv {float:left; margin-right:50px; width:320px;}
+.rightDiv p{float:right;font-family:"微软雅黑"; color:#4c4c4c;font-size:14px; line-height:60px;}
+.rightDiv span{font-family:"微软雅黑";color:#c40000;font-size:24px; line-height:60px; font-weight:bold;}
+
+.submitDD{float:right; margin-top:20px; margin-right:50px;}
+.submitDD p{float:left; line-height:38px; color:#cc9977; margin-right:40px;}
+.submitDD a{line-height:38px; color:#cc9977; }
+.submitDD input{float:left;}
+
+.shopping_address{float:left; width:1000px; margin-top:20px;}
+.addressList{float:left; margin-left:40px; width:960px;}
+.addressList p,img,input{float:left;}
+.addressList .xuanzeP{color:#4c4c4c; }
+.addressList p{line-height:40px;font-family:"微软雅黑"; color:#b3b3b3;font-size:14px; }
+.shopping_address .shP{line-height:40px;font-family:"微软雅黑";font-size:16px; color:#666666; margin-left:20px;}
+.addressList input{float:left; margin-top:15px; margin-right:20px;}
+.addressList img{margin-top:11px; margin-right:10px;}
+.peopleP{width:110px;}.phoneP{width:160px;}.addressP{width:700px;}
+.allA{float:left; line-height:38px; color:#cc9977; margin-left:40px;}
+
+/*订单提交成功*/
+.submitOrder{ float:left; width:1000px; background-color:#eeeeee; padding:20px 0; margin-top:20px;}
+.orderLeft{float:left; width:300px; margin-left:50px; margin-top:40px;}
+.orderLeft p{float:left; line-height:30px;}
+.orderLeft  .order_title{line-height:40px;font-family:"微软雅黑"; color:#333333;font-size:14px; font-weight:bold; margin-left:30px;}
+.orderLeft  .order_title span{line-height:40px;font-family:"微软雅黑"; color:#333333;font-size:16px; font-weight:bold; margin:0 5px; color:#2a993a}
+.orderLeft  .order_p{color:#808080;margin-left:70px;}
+.orderLeft img{float:left;}
+.orderRight{ float:left; border-left: solid 1px #dcdcdc; margin-left:40px;}
+.order_main{float:left; width: 550px; padding:40px 25px;}
+.order_main p{float:left; color:#333333; line-height:30px;}
+.order_Text{width:550px; float:left; margin-left:20px;}
+.order_Text p{width:500px;}
+.order_Text span{color:#333333; }
+.payBox{float:left; width:1000px; border-top: dashed 1px #4c4c4c; margin-top:30px;}
+.payBox input{float:right; margin-top:20px; outline:none;}
+
+/*订单提交失败*/
+.backCar{float:left; width:300px; margin-left:70px; color:#666666;}
+.backCar a{text-decoration:underline; color:#2a993a;}
+.order_Text .telSpan{ font-size:14px; color:#2a993a;font-family:Arial, Helvetica, sans-serif;}
+.order_Text img{margin-top:10px; margin-right:5px;}
+
+
+.supplement{float:left; width:1000px; margin-top:20px;}
+.buyersMessage{float:left; width:480px; padding-top:5px; margin-left:20px;}
+.buyersMessage p{float:left; width:300px;}
+.message_text{
+	float:left;
+	width: 400px;
+	height: 90px;
+	resize: none;
+	line-height: 20px;
+	color: #3333333;
+	margin-top:10px;
+}
+.alldetail{float:left; width:500px;}
+.item_P{float:left; text-align:left; width:100px;line-height:20px;}
+.detail_item{float:left; width:500px; border-bottom:solid 1px #f2f2f2; padding:5px 0;}
+.delivery{float:left; width:350px; padding-bottom:5px;line-height:20px;}
+
+.delivery input{float:left; margin-top:3px;}
+.itemBox{float:left;width:400px;}
+.fareP{float:right; font-family:"微软雅黑"; color:#c40000; font-size:16px;font-weight: 700}
+.rightText{float:left; line-height:20px;}
+.rightText a{color:#24a82e;}
+
+
+
+.AddtoCart{float:left; width:1000px; padding-top:20px; padding-bottom:20px;}
+.commodityOK{float:left; width:400px;}
+.commodityOK img{float:right;margin-left:10px;}
+.commodityOK p{float:right; font-family:"微软雅黑"; color:#2a993a; font-size:24px; line-height:40px; margin-left:20px;}
+.commodity{float:left; width:600px;}
+.commodity img{float:left; width:150px; height:150px; margin-right:20px;}
+
+.pone{float:left; font-family:"微软雅黑"; font-size:18px; color:#333333; width:420px; line-height:30px;}
+.ptwo{float:left;font-family:"微软雅黑"; font-size:14px; color:#ff0000; line-height:45px; width:420px;} 
+
+.commodityOK .totalP{font-family:"微软雅黑"; font-size:18px; text-align:right; width:400px; color:#c40000; padding-top:20px;}
+.commodityOK .totalP span{font-family:"微软雅黑"; font-size:18px; color:#c40000;}
+
+
+.payWay{float:left;}
+.payWay p{font-family:"微软雅黑"; font-size:14px; color:#4c4c4c; font-weight:bold; line-height:50px; margin-left:10px;}
+.way_one{float:left; margin-right:20px; margin-left:10px;}
+.way_one input{margin-top:10px; margin-right:10px; float:left}
+.way_one img{width:120px; float:left}
+
+.payment{float:left; width:1000px; margin-top:20px;}
+.payment p{float:left; line-height:40px; width:1000px; text-align:center;}
+.payment .ok_p{ font-size:24px; color:#ff7200;font-family:"微软雅黑";font-weight:bold; border-bottom:solid 1px #b1d58f;
+ padding-bottom:10px; margin-left:40px; width:920px; margin-bottom:10px; text-align:left}
+.payment .ok_p2{ font-size:14px; color:#2a993a;font-family:"微软雅黑"; }
+.payment .ok_p2 span{ font-size:18px; color:#f6a800;font-family:"微软雅黑";font-weight:bold; }
+
+.orderRight2{ float:left; width:750px; margin-left:10px;}
+.order_main2{
+	float: left;
+	width: 750px;
+	padding: 20px 0px;
+	border: none;
+}
+.order_main2 p{float:left; color:#333333; line-height:30px; width:500px;}
+.order_Text2{width:750px; float:left; margin-left:20px;}
+.order_Text2 p{width:600px;}
+.order_Text2 span{color:#333333; }
+.price_Box{ float:right; margin-right:40px; width:200px;padding-top:50px;}
+.price_Box p{ font-size:20px; color:#ff7200;font-family:"微软雅黑";font-weight:bold; float:right}
+
+
+/*确认收货*/
+.confirmBox{float:left; width:1000px; margin-top:20px;}
+.confirmBox p{float:left; line-height:40px; width:1000px; text-align:center;}
+.confirmBox .confirm_p{ font-size:22px; color:#ff7200;font-family:"微软雅黑";font-weight:bold;
+ padding-bottom:10px; margin-left:40px; width:920px; margin-bottom:10px; text-align:left}
+.confirmBox .confirm_p2{ font-size:14px; color:#4c4c4c;font-family:"微软雅黑"; }
+.confirmBox .confirm_p2 a{ font-size:14px; color:#4cabdc;font-family:"微软雅黑";font-weight:bold; }
+.confirmBox .confirm_p2 span{ font-size:14px; color:#4c4c4c;font-family:"微软雅黑"; color:#4c4c4c; font-weight:bold;}

@@ -1,0 +1,7 @@
+/*CSS重置*/
+*{font-size:12px; font-family:"宋体";margin:0; padding:0}
+ul{margin:0; padding:0}
+li{list-style:none;}
+h1,h2,h3,h4{ font-weight:normal}
+img{display:block; border:none 0;}
+a{text-decoration:none;}

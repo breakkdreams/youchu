@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+.groupBuy{float:left; width:100%;background-color:#f7f5bc; height:350px; position:relative}
+.groupBanner{background-image:url(../images/banner2.jpg); min-width:1200px; margin-left:auto; margin-right:auto; height:350px; max-width:1400px;}
+.baiyun{background-image:url(../images/yun.png); width:100%; height:45px; float:left; position:absolute; top:305px;}
+.group_List{width:1000px; margin-left:auto; margin-right:auto; overflow:hidden}
+.groupBox{float:left;}
+.product{ width:318px; height:350px; border:solid 1px #e5e5e5; float:left; margin-left:20px; margin-top:30px;}
+.product img{float:left; width:318px; height:210px;}
+.text_pro{float:left; margin-left:10px; margin-top:10px;height:75px;}
+.text_pro p{float:left; color:#4c4c4c;}
+.title_pro{ width:225px; line-height:22px; height:50px;}
+.title_pro a{color:#4c4c4c;font-family:"微软雅黑"; font-size:14px; font-weight:bold; }
+.time_pro{font-size:12px; line-height:20px; width:180px;font-family:"微软雅黑";font-weight:bold;}
+.text_pro .discount{ font-size:30px; font-family:"微软雅黑"; color:#e00100; float:right; margin-top:20px;margin-right:5px;}
+.main_pro{float: left; background-image:url(../images/tuan_bg.png); width:318px; height:55px;}
+.pro1{ font-size: 36px; float:left; font-weight:bold; font-family:Arial, Helvetica, sans-serif; color:#ffffff; margin-left:10px; line-height:55px;}
+.pro1 span{font-family:"微软雅黑"; font-size:20px; font-weight:bold; color:#ffffff;line-height:55px;}
+.pro_between{width:150px; float:left}
+.pro2{ font-size: 16px; float:left;font-family:"微软雅黑"; color:#ffffff; margin-left:10px; text-decoration:line-through; line-height:25px;}
+.pro3{ font-size: 14px; float:left;font-family:"微软雅黑";  margin-left:10px;line-height:25px;}
+.pro3 span{ font-size: 14px; font-family:"微软雅黑"; margin:0 5px; color:#f1ff0e;}
+.pro4{ float:right;}
+.pro4 a{color:#f61d4b; font-size:16px; font-family:"微软雅黑"; font-weight: bold; line-height:55px; margin-right:10px;}
+
+
+
+/* 提货券 */
+.ticket{float:left; width:100%;background-color:#ffd800; height:395px; overflow:hidden}
+.ticketBanner{background-image:url(../images/tihuoquan.png); min-width:1200px; margin-left:auto; margin-right:auto; height:395px;max-width:1400px;}
+
+.ticketBox{width:1000px; border:solid 1px #cccccc;margin-left:auto; margin-right:auto;}
+.ticketMain{float:left;width:998px; border:solid 1px #cccccc;margin-top:50px; float:left}
+.ticketUp{float:left; width:500px; margin-left:285px; margin-top:50px; margin-bottom:50px;}
+.ticketText{float:left; margin:10px 0;}
+.ticketText p,input{float:left;}
+.ticketText p{float:left; font-family:"微软雅黑"; font-size:20px; color:#4c4c4c; line-height:45px; width:110px;}
+.ticketText input{width:280px; height:45px; background-image:url(../images/input.png); border:none; outline:none; color:#4c4c4c; font-size:14px;}
+.ticketList{width:850px; float:left; border-top:dashed 1px #666666; margin-left:75px;}
+.ticketList{float:left;}
+.total{float:right; color:#4c4c4c; font-family:"微软雅黑"; font-size:14px; margin-top:10px;}
+.total span{color:#c40000; font-family:"微软雅黑"; font-size:14px; margin:0 5px;}
+.ticketTable{float:left; margin-bottom:50px;}
+.ticket_title{float:left; background-image: url(../images/tihuobg.png); height:50px; width:850px;}
+.ticket_title p{line-height:50px; float:left; font-family:"微软雅黑"; font-size:14px;}
+.p01{width:150px; text-align:left; padding-left:50px;}.p02{width:300px;text-align:center; }.p03{width:200px;text-align:center; }.p04{width:150px;text-align:center; }
+.ticket_content{float:left; height:50px; width:850px; border-bottom:solid 1px #cccccc;}
+.ticket_content p{line-height:50px; float:left; font-family:"微软雅黑"; font-size:14px; color:#4c4c4c;}
+.ticket_content a{line-height:50px;font-family:"微软雅黑"; font-size:14px; color:#4c4c4c;}
+
+/* 企业采购 */
+.companyBanner{width:100%; float:left}
+.companyBanner img{width:100%;height:auto; min-height:328px; min-width:1200px;}
+.companyBox{width:1000px; margin-left:auto; margin-right:auto; overflow:hidden}
+.fuwu{width:517px; height:72px; margin-left:auto; margin-right:auto; margin-top:20px;}
+.benefit{float:left; width:1000px; margin-top:20px;}
+.benfit_one{float:left; width:490px; margin-top:30px;}
+.benfit_one img{float:left;}
+.benfit_title{ float:left; font-family:"微软雅黑"; font-size:24px; color:#000000; font-weight:bold; width:280px; margin-left:20px;}
+.benfit_title span{ font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000;}
+.benfit_content{width:490px; height:160px; background-color:#f2f2f2; float:left; margin-top:10px;}
+.benfit_content p{float:left; font-family:"微软雅黑"; font-size:16px; color:#000000; line-height:30px; margin-top:20px; margin-left:10px; width:470px;}
+.liuchengBanner{width:100%; float:left; margin-top:20px;}
+.liuchengBanner img{width:100%; height:auto; min-height:128px; min-width:1200px;}
+.liuchengBox{width:1000px; margin-left:auto; margin-right:auto; overflow:hidden;}
+.liuchengBox img{float:left; margin-left:70px; margin-top:30px;}
+.liucheng_text{float:left; margin-top:20px;}
+.liucheng_step{float:left;width:180px; margin-left:70px;}
+.liucheng_step p{width:180px; float:left; font-family:"微软雅黑"; font-size:12px; line-height:20px;}
+.liucheng_step .liucheng_title{ font-weight:bold; font-size:16px;width:180px; line-height:40px;}
+.companyInfor{float:left;}
+.infor_one{width:600px; float:left; margin-left:200px; margin:10px 150px;}
+.infor_one p{text-align:right; width:200px; font-family:"微软雅黑"; font-size:14px; line-height:30px; float:left; margin-right:20px;}
+.infor_one input{width:300px; height:30px; float:left}
+.companyInfor h1{ font-family:"微软雅黑"; font-size:32px; text-align:center; width:1000px; padding:15px 0; color:#669933; border-top:dashed 1px #e5e5e5; margin-top:20px;}

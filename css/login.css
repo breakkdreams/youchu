@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+.loginBox{background-color:#fafafa; width:100%; float:left;margin-top:30px;}
+.loginline{background-image:url(../images/loginbg.png); width:100%; height:4px; float:left;}
+.login_main{width:1000px; margin-left:auto; margin-right:auto;}
+
+.login_frame{float:right; width:340px; height:400px; border:solid 1px #e6e6e6; background-color:#ffffff; margin-top:50px; margin-bottom:50px;}
+.login_text{float:left; margin-left:50px; margin-top:30px; width:340px;}
+.login_text p{float:left;width:248px; line-height:40px; color:#333333;}
+.login_text input{float:left; width:248px; height:38px; border:solid 1px #cccccc; color:#808080;line-height:40px;}
+.login_text .loginButton{ width:250px; height:40px; background-image:url(../images/loginbutton.png); border:none; margin-top:20px;}
+.otherP{ float:left; margin-left:50px; line-height:40px; margin-top:10px; width:248px; color:#808080;}
+.otherP input{ float:left; margin-top:14px;}
+.otherP p{ float:right; color:#808080;}
+.otherP a{color:#808080;}
+.partnerBox{width:280px; float:left; margin-left:30px; border-top: dashed 1px #cccccc; margin-top:20px;}
+.partnerBox p{float:left; color:#808080; line-height:30px; margin-left:20px; width:300px;}
+.partner_img{float:left; margin-left:20px;}
+.partner_img img{float:left; margin-right:10px;}
+
+/* 注册 */
+.registerBox{width:990px; border:solid 5px #cccccc; height:400px; margin:50px 0; background-color:#ffffff;}
+.register_text{float:left; border-right:solid 1px #cccccc; height:400px; width:670px;}
+.register_title{ float:left; margin-top:20px;}
+.register_title img{float:left;}
+.register_title p{float:left; font-family:"微软雅黑"; font-size:14px; line-height:20px; margin:0 10px; width:300px;}
+.register_main{float:left; margin-top:20px; width:670px;}
+.textOne{float:left; margin:5px 0; margin-right:100px;}
+.textOne p{float:left; text-align:right; width:180px; line-height:40px; margin-right:10px;}
+.textOne input{float:left; width:278px; height:38px; border:solid 1px #cccccc;}
+.textOne .get{ background-image:url(../images/huoqu2.png); width:115px; height:40px; border:none; background-color:#ffffff; margin-left:10px;}
+.textTwo{float:left; margin:5px 0; margin-right:100px; margin-left:190px;}
+.textTwo input{float:left; width:15px; height:15px; margin-right:10px;}
+.textTwo p{float:left;}
+.textTwo a{ color:green}
+.zhuce{width:280px; height:40px; border:none; background-image:url(../images/zhuce.png); margin-top:10px; background-color:#ffffff; margin-left:190px;}
+.register_right{float:left; margin-top:100px; width:250px; margin-left:50px;}
+.register_right p{color:#808080; line-height:25px;}
+.register_right p,img,input{float:left;}
+.register_right input{ background-image:url(../images/denglu.png); width:70px; height:25px; border:none; float:left; margin-left:10px;}
+.hezuo{width:225px; border-top: dashed 1px #cccccc; float:left; margin-top:20px;}
+.hezuo p{float:left; width:220px; margin-top:15px; margin-bottom:10px;}
+.hezuo img{ margin-right:5px;}
+
+/* 忘记密码*/
+.getback{float:left;font-family:"微软雅黑"; font-size:18px; color:#333333; margin:20px; border-bottom:dashed 1px #cccccc; width:300px; padding-bottom:5px;}
+.sendtext{float:left;font-family:"微软雅黑"; font-size:14px; color:#333333; }
+

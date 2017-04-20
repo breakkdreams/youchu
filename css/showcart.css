@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+.showcartcon{ width:990px; height:auto; margin:3em auto; }
+.bottom{ height:35px; line-height:35px; text-align:center; }
+.rectitle{ height:}
+.recommended{ border:1px solid #dce5d4; height:275px;}
+.rectitle{ height:40px; background:#f1f4eb; line-height:40px; font-size:14px; font-size:14px; padding-left:10px;}
+.slider ul{ width:950px;  height:205px;  margin:20px 20px ;  }
+.slider  li{float:left; width:135px; margin-right:10px; margin-left:10px;}
+.slider li img{ width:135px; height:135px;}
+.showcarttitle{ height:30px; line-height:40px; background:#669934; padding-top:10px; padding-left:20px;}
+.showalltitle{ height:78px; line-height:78px; padding-left:20px;}
+.showright{ float:right;}
+.showall{ border:1px solid #ccc; padding-bottom:20px;}
+.showleft{ font-size:20px; }
+.showtabletitle{ background:#efefef; line-heiht:40px; text-align:center;}
+.tableline{ border-bottom:1px solid #ccc;}
+.size14{ font-size:14px; text-align:left}
+.fontweight{ font-weight:bold;}
+.add-cart{ height:130px;}
+.add-cart-right{ float:right; width:320px; text-align:right;}
+.add-cart-right p{ height:30px; line-height:30px;}
+.btn-add li{ float:left; width:120px; margin-right:5px;}
+.btn-add { float:right;}
+.gray_jr{ background:url(../images/gray_jr.jpg) no-repeat; width:77px; height:21px;}
+.dizhi{ border:2px solid #66b51c; min-height:230px; padding:10px 20px;}
+.showcart2title{ font-size:14px; height:30px; line-height:30px;}
+.dizhi li{ height:30px; line-height:30px; width:600px; margin-bottom:10px;}
+.showbutton{ margin-top:10px;"}
+.box1{border-bottom:1px solid #ccc;  padding:10px 20px;}
+.box1 p{ height:24px; line-height:24px;}
+
+.box2{  padding:10px 20px; text-align:right;}
+.box2 p{ height:30px; line-height:30px; font-size:14px; }
+.box4{width:780px; height:135px; border:2px solid #ecede5; background:#fffdf4; margin:20px auto; padding-top:30px; padding-left:100px;}
+.box4 p{ height:80px; line-height:80px;}
+.ka{ width:200px; height:18px; border:1px solid #ccc;}
+.right{float:right;}
+
+

@@ -1,0 +1,37 @@
+#jsddm
+{	margin: 0;
+	padding: 0 5px;}
+
+	#jsddm li
+	{	float: left;
+		list-style: none;
+		font: 12px Tahoma, Arial}
+
+	#jsddm li a
+	{	display: block;
+		text-decoration: none;
+		line-height:30px;
+		
+		color: #4c4c4c;
+		white-space: nowrap; }
+
+		
+		#jsddm li ul
+		{	margin: 0;
+			padding: 0x;
+			position: absolute;
+			visibility: hidden;}
+		
+			#jsddm li ul li
+			{	float: none;
+				display: inline;}
+			
+			#jsddm li ul li a
+			{	width: auto;
+				background: #e5e5e5;
+				color: #24313C;
+				padding:2px;
+			  }
+			
+			#jsddm li ul li a:hover
+			{	background: #b3b3b3}

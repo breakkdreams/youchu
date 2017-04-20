@@ -1,0 +1,135 @@
+<?php
+/**
+ * 订单API
+ */
+require('../plugins.php');
+
+$cmd = myPOST('cmd');
+
+
+//生成订单
+if('createOrder'==$cmd){
+	$order_code = time();
+	$order['order_code'] = $order_code; 
+	$order['order_state'] = 0; 
+	$order['member_id'] = myPOST('member_id'); 
+	$order['product_id'] = myPOST('product_id'); 
+	$order['send_type'] = myPOST('send_type'); 
+	$order['get_name'] = myPOST('get_name'); 
+	$order['get_address'] = myPOST('get_address'); 
+	$order['get_tel'] = myPOST('get_tel'); 
+	$order['get_phone'] = myPOST('get_phone'); 
+	$order['get_qq'] = myPOST('get_qq'); 
+	$order['get_zip'] = myPOST('get_zip'); 
+	$order['get_building'] = myPOST('get_building'); 
+	$order['get_time'] = myPOST('get_time'); 
+	$order['order_price'] = myPOST('order_price'); 
+	$order['product_price'] = myPOST('product_price'); 
+	$order['send_price'] = myPOST('send_price'); 
+	$order['order_message'] = myPOST('order_message'); 
+	$order['order_fp'] = myPOST('order_fp'); 
+	
+	$params_array['products'] = myPOST('products'); 
+	$params_array['nums'] = myPOST('nums'); 
+	$params_array['price'] = myPOST('price'); 
+
+	//判断参数是否存在
+	if(empty($order['order_code'])){
+		$flag['flag']=-1;
+		$flag['msg']='参数错误';
+		$flag['data']='';
+		echo json_encode($flag);
+		return;
+	}
+
+	//生成订单
+	if(createOrder($order,$params_array)>0){
+		//返回
+		$flag['flag']=1;
+		$flag['msg']='生成订单成功';
+		$flag['data']='';
+		echo json_encode($flag);
+	}else{
+		$flag['flag']=0;
+		$flag['msg']='生成订单失败';
+		$flag['data']='';
+		echo json_encode($flag);
+	}
+}
+//获取订单列表
+else if('getOrderList'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+	
+	//参数
+	$params_array['member_id'] = myPOST('member_id'); 
+	$params_array['pay_state'] = myPOST('pay_state'); 
+	$params_array['order_state'] = myPOST('order_state'); 
+	
+	$return = getManageOrederPage2();
+	$flag['flag']=0;
+	$flag['msg']='';
+	$flag['data']='';
+	echo json_encode($flag);
+}
+//支付订单
+else if('payOrder'==$cmd){
+		$flag['flag']=0;
+			$flag['msg']='';
+			$flag['data']='';
+			echo json_encode($flag);
+}
+//取消订单
+else if('cancelOrder'==$cmd){
+		$flag['flag']=0;
+			$flag['msg']='';
+			$flag['data']='';
+			echo json_encode($flag);
+}
+//获取订单信息
+else if('getOrderInfo'==$cmd){
+		$flag['flag']=0;
+			$flag['msg']='';
+			$flag['data']='';
+			echo json_encode($flag);
+}
+//确认订单
+else if('completeOrder'==$cmd){
+	//返回值
+	$return = array();
+	
+	//参数
+	$member_id = myPOST('member_id');
+	$cartids = myPOST('cartids');
+	
+	//判断参数是否正常
+	if(empty($cartids)||!is_numeric($member_id)||$member_id<1){
+		$flag['flag']=-1;
+		$flag['msg']='参数错误';
+		$flag['data']='';
+		echo json_encode($flag);
+		return;
+	}
+		
+	//默认收货地址
+	$return['address'] = getMemberAddress($member_id);
+	
+	//订单详情列表
+	$return['list'] = countCartListByBuy($cartids);
+	
+	if(empty($return['list'])){
+		$flag['flag']=0;
+		$flag['msg']='没有订单信息';
+		$flag['data']='';
+		echo json_encode($flag);
+		return;
+	}else{
+		$flag['flag']=1;
+		$flag['msg']='成功';
+		$flag['data']=$return;
+		echo json_encode($flag);
+		return;
+	}
+	echo json_encode($flag);
+}

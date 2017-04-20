@@ -1,0 +1,197 @@
+<?php
+/**
+ * 商品接口
+ */
+require('../plugins.php');
+
+$cmd = myPOST('cmd');
+
+//首页
+if('home'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+		
+	//置顶广告
+	$ad = getADByName('1');
+	//广告
+	$adList = getADList();
+	//人气王
+	$pop = getProductByPopularity();
+	//超热卖
+	$hot = getProductByHot();
+	//好评高
+	$pra = getProductByPraise();
+	//热门商品
+	$list = getProductListByHot();
+	
+
+	//设置返回值	
+	$return['ad']=$ad;
+	$return['adList']=$adList;
+	$return['pop']=$pop;
+	$return['hot']=$hot;
+	$return['pra']=$pra;
+	$return['list']=$list;
+	//检查map
+	$return = checkMap($return);
+	//返回
+	$flag['flag']=1;
+	$flag['msg']='查询成功';
+	$flag['data']=$return;
+	echo json_encode($flag);	
+	echo '<br/><br/><br/><br/>';
+	$key = array();
+	$key['0']='d_time1';
+	$key['1']='d_time2';
+	echo json_encode(setDateState($ad,$key));	
+}
+//商品分页（分类查询）
+else if('productPage'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+	
+	//参数
+	$product_type1 = myPOST('product_type');
+	$type = myPOST('type');
+	$page = myPOST('page');
+	//参数验证
+	if(!is_numeric($product_type1)||$product_type1<1){
+		//返回
+		$flag['flag']=-1;
+		$flag['msg']='参数错误';
+		$flag['data']=$return;
+		echo json_encode($flag);	
+		return;
+	}
+	
+	//获取商品信息
+	$return = getProductPage2($product_type1,$type,$page);
+	
+	if(!empty($return)){
+		//返回
+		$flag['flag']=1;
+		$flag['msg']='获取成功';
+		$flag['data']=$return;
+		echo json_encode($flag);		
+	}else{
+		//返回
+		$flag['flag']=0;
+		$flag['msg']='暂无商品信息';
+		$flag['data']='';
+		echo json_encode($flag);
+	}
+}
+//商品分页(名字查询)
+else if('productPageByName'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+	
+	//参数
+	$product_name = myPOST('product_name');
+	$page = myPOST('page');
+	//获取商品信息
+	$return = getProductPage3($product_name,$page);
+	if(!empty($return)){
+		//返回
+		$flag['flag']=1;
+		$flag['msg']='获取成功';
+		$flag['data']=$return;
+		echo json_encode($flag);		
+	}else{
+		//返回
+		$flag['flag']=0;
+		$flag['msg']='暂无商品信息';
+		$flag['data']='';
+		echo json_encode($flag);
+	}
+}
+//商品详情
+else if('productInfo'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+	
+	//参数
+	$product_id = myPOST('product_id');
+	$member_id = myPOST('member_id');
+	//检查参数
+	if(!is_numeric($product_id)||$product_id<1||!is_numeric($member_id)){
+		//返回
+		$flag['flag']=-1;
+		$flag['msg']='参数错误';
+		$flag['data']=$return;
+		echo json_encode($flag);
+		return;
+	}
+	//获取商品信息
+	$return['info'] = getProductInfo2($product_id);
+	
+	//热门推荐
+	$return['hot'] =getRecommendProductOne();
+	
+	//是否收藏
+	$collection = getCollectionState($product_id,$member_id);
+	if(empty($collection)){
+		$return['collection'] =0;
+	}else{
+		$return['collection'] =1;
+	}
+	//购物车内的数量
+	$cartNum = countCartByProduct($member_id,$product_id);
+	if(empty($cartNum)){
+		$return['cartNum'] =0;
+	}else{
+		$return['cartNum'] =$cartNum;
+	}
+	
+	if(!empty($return)){
+		//返回
+		$flag['flag']=1;
+		$flag['msg']='获取成功';
+		$flag['data']=$return;
+		echo json_encode($flag);	
+		return;	
+	}else{
+		//返回
+		$flag['flag']=0;
+		$flag['msg']='暂无商品详情';
+		$flag['data']='';
+		echo json_encode($flag);
+	}
+}
+//分类列表
+else if('productClass'==$cmd){
+	//返回值
+	$return = array();
+	$flag = array();
+	
+	//一级目录
+	$menu1 = getProductRootMenu();
+	
+	//二级目录
+	$menu2 = getProductSecondMenu();
+	
+	//设置返回值
+	$return['menu1']=$menu1;
+	$return['menu2']=$menu2;
+	//检查map
+	$return = checkMap($return);
+	
+	if(!empty($return)){
+		//返回
+		$flag['flag']=1;
+		$flag['msg']='获取成功';
+		$flag['data']=$return;
+		echo json_encode($flag);		
+	}else{
+		//返回
+		$flag['flag']=0;
+		$flag['msg']='暂无分类列表';
+		$flag['data']='';
+		echo json_encode($flag);
+	}
+	
+}

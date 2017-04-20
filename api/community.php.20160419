@@ -1,0 +1,7 @@
+<?php
+/**
+ * 社区
+ */
+require('../plugins.php');
+
+$cmd = myPOST('cmd');

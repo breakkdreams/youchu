@@ -1,0 +1,119 @@
+<?php
+/**
+ * 购物车接口
+ */
+require('../plugins.php');
+
+$cmd = myPOST('cmd');
+
+
+
+/**
+ * member_login			账号
+ * member_password		密码
+ */
+//购物车列表接口
+if('list'==$cmd){
+	
+	//返回值
+	$flag = array();
+	
+	//参数
+	$member_id = myPOST('member_id');
+	//检查测试是否正常
+	if(!is_numeric($member_id)||$member_id<1){
+		//返回
+		$flag['flag']=-1;
+		$flag['msg']='参数有误';
+		$flag['data']='';
+		echo json_encode($flag);	
+	}else{
+		//购物车列表
+		$list = getCartList2($member_id);
+		if(!empty($list)){
+			//返回
+			$flag['flag']=1;
+			$flag['msg']='查询成功';
+			$flag['data']=$list;
+			echo json_encode($flag);		
+		}else{
+			//返回
+			$flag['flag']=0;
+			$flag['msg']='暂无购物车信息';
+			$flag['data']='';
+			echo json_encode($flag);
+		}
+	}
+}
+//加入购物车接口
+else if('addCart'==$cmd){
+	
+	//返回值
+	$flag = array();
+
+	//参数
+	$cart = array();
+	$cart['member_id'] = myPOST('member_id');
+	$cart['product_id'] = myPOST('product_id');
+	$cart['type_id'] = myPOST('type_id');
+	$cart['cart_acount'] = myPOST('cart_acount');
+	$cart['is_taocan'] = myPOST('is_taocan');
+	//购物车列表
+	if(!is_numeric($cart['member_id'])||$cart['member_id']<1||
+	!is_numeric($cart['cart_acount'])||$cart['cart_acount']<1||
+	!is_numeric($cart['product_id'])||$cart['product_id']<1){
+		//返回
+		$flag['flag']=-1;
+		$flag['msg']='参数有误';
+		$flag['data']='';
+		echo json_encode($flag);	
+	}else{
+		$id = addCart($cart);
+		if($id>0){
+			//返回
+			$flag['flag']=1;
+			$flag['msg']='添加到购物车成功';
+			$flag['data']='';
+			echo json_encode($flag);		
+		}else{
+			//返回
+			$flag['flag']=0;
+			$flag['msg']='添加到购物车失败';
+			$flag['data']='';
+			echo json_encode($flag);
+		}
+	}
+}
+//删除购物车接口
+else if('deleteCart'==$cmd){
+	
+	//返回值
+	$flag = array();
+
+	$cartids = myPOST('cartids');
+	//购物车列表
+	if(empty($cartids)){
+		//返回
+		$flag['flag']=-1;
+		$flag['msg']='参数有误';
+		$flag['data']='';
+		echo json_encode($flag);	
+	}else{
+		$id = deleteCartItems($cartids);
+		if($id>0){
+			//返回
+			$flag['flag']=1;
+			$flag['msg']='删除购物车成功';
+			$flag['data']='';
+			echo json_encode($flag);		
+		}else{
+			//返回
+			$flag['flag']=0;
+			$flag['msg']='删除购物车失败';
+			$flag['data']='';
+			echo json_encode($flag);
+		}
+	}
+}
+
+?>

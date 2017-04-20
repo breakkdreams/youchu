@@ -1,0 +1,39 @@
+<?php
+/**
+ * 地址接口
+ */
+require('../plugins.php');
+
+$cmd = myPOST('cmd');
+
+
+
+//地址列表
+if('list'==$cmd){
+	
+	//返回值
+	$flag = array();
+	$member_id = myPOST('member_id');
+	if(!is_numeric($member_id)||$member_id<1){
+		$flag['flag']=-1;
+		$flag['msg']='参数有误';
+		$flag['data']='';
+		echo json_encode($flag);
+		return ;
+	}
+	//获取数据
+	$return = getMemberAddressListAll($member_id);
+	if(!empty($return)){
+		$flag['flag']=1;
+		$flag['msg']='成功';
+		$flag['data']=$return;
+		echo json_encode($flag);
+		return ;
+	}else{
+		$flag['flag']=0;
+		$flag['msg']='暂无城市信息';
+		$flag['data']='';
+	}
+	
+	echo json_encode($flag);
+}

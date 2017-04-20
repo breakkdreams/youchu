@@ -1,0 +1,11 @@
+<?php
+/**
+ * 城市列表
+ * @param $brand
+ */
+function getCityList(){
+	
+	$sql = "select city_name,city_initial from shop_city order by city_initial ";
+	
+	return SQLHelper::getInstance()->query($sql);
+}

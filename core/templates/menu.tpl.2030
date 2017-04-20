@@ -1,0 +1,211 @@
+<!--头部导航开始-->
+<!--[if IE 6]>
+<script src="/js/pngfix.js"></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+{literal}
+<script type="text/javascript">$(function(){$(".area_child").click(function(){var pid = $(this).attr("pid");var self_obj = $("#region_"+pid);if(self_obj.css("display")=="none"){$(".other_chlid_area").hide();self_obj.show();}else{self_obj.hide();}});$(".Orchard_1").mouseover(function(e) {$(".Orchard_2").show();$(".Orchard_1").addClass("fr");});$(".Orchard_1").mouseout(function(e) {$(".Orchard_2").hide();$(".Orchard_1").removeClass("fr");});$("#star").mouseover(function(e) {$("#star img").attr("src","/assets/images/bigpic/star2.jpg")});$("#star").mouseout(function(e) {$("#star img").attr("src","/assets/images/bigpic/star.jpg")});$(".iphone_f1").mouseover(function(e) {$(".iphone_f2").show();});$(".iphone_f1").mouseout(function(e) {$(".iphone_f2").hide();});});</script>
+{/literal}
+<div class="top-box">
+	<!--top-box-title start-->
+        <div class="top-box-title">
+        	<div class="site-nav-bd">
+            	<ul class="ul_left">
+                	<li>您好{$login_name}，欢迎光临嘉兴水果网！</li>
+                </ul>
+
+                <ul class="ul_right"> 
+                  <span class="login_span" style="">     
+                	{if $login_name eq null}<li><a href="login.html" rel="nofollow" target="_blank">[登录]</a></li><li>|</li>{/if}
+                    <li><a href="register.html" rel="nofollow" target="_blank">{if $login_name eq null}[注册<span style="color:red;">有惊喜</span>]{else}
+<a href="logout.php">[退出]</a>
+{/if}</a></li><li>|</li>
+                  </span>
+                 
+                  <li>
+                   <div class="Orchard">
+                    <div class="Orchard_1"><a href="member.html" class="fr_1">我的安佳</a>
+                        <div class="Orchard_2" style="height:auto;">    
+                                            <div style="width:70px;_width:60px; height:6px; background:#fff; position:absolute; right:0; top:-6px;_top:-3px"></div>
+                            {if $login_name eq null}
+                            <span class="login_span" style="">   
+                                <p class="p_login">您好，请<a href="login.html" rel="nofollow">登录</a></p>
+                            </span>
+                            {else}
+                            <span class="logined_span" >
+                                <p class="p_login">您好，<a href="#"><span class="username">{$login_name}</span></a></p>
+                            </span>
+                            <ul class="ul-left">
+                                <li><a href="member_order_list_1.html" rel="nofollow">我的订单 &gt;</a></li>
+                                <li><a href="member_score_list_1.html" rel="nofollow">我的积分 &gt;</a></li>
+                                <li><a href="member_follow_list_1.html" rel="nofollow">帐户余额 &gt;</a></li>
+                                
+                            </ul>
+                            <ul class="ul-left ul-lefts">
+                                <li><a href="member_basic.html" rel="nofollow">基本资料 &gt;</a></li>
+                                <li><a href="member_password.html" rel="nofollow">密码修改 &gt;</a></li>
+                                <li><a href="member_address.html" rel="nofollow">收货地址 &gt;</a></li>
+                            </ul>
+                            {/if}
+                            
+                        </div>
+                    </div>
+                </div>
+            </li><li>|</li>
+
+             <!--iphone_f start-->                
+                   <li>
+                   <div class="iphone_f">
+                    <div class="iphone_f1"><img src="images/mobile_phone.png" style="width:18px;padding-bottom: 9px;">手机安佳
+                        <div class="iphone_f2" style="display: none; ">                           
+                       
+                            <dl>
+                                <dt><img src="images/weixin_big.jpg" width="110" height="110">
+                               <dd > 关注安佳微信，即享手机特价商品！</dd>
+                                </dt>
+                                
+                               
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </li><li>|</li>
+            <!--iphone_f end--> 
+
+
+            <span class="logined_span" style="display: none; ">
+                <li><a href="logout.php">退出</a></li><li>|</li>
+            </span>
+                    <li class="icon-iphone_1" style="font-size:14px;margin-right:0px;">0573-83965184</li>
+                </ul>
+            </div>            
+        </div>
+
+
+<div class="top-spic statis_topactive">
+     <div class="top-smallpic"><a href="http://www.0573sg.com/item-115.html" position="2" ></a></div>
+</div>
+        <!--top-box-title end-->
+
+	<div class="top-box01">
+		<div class="container-top">
+			<div class="logo-green"><h1><a href="#"><img src="images/logo_green.png" alt=""></a> </h1></div>
+			
+			
+
+			<div class="search-wrap statis_search">
+            	<div class="search-panel">
+                	<div class="input-wrap">
+                    	<i class="sech"></i>
+                    	<input id="search_keyword" type="text" value="樱桃" placeholder="想找什么水果" class="logo-search-input">
+                    </div>
+                    <div class="search-button">
+                    	<button class="btn-search" id="" type="button"></button>
+                    </div>
+                </div>
+                <div class="search-ft">
+                	<ul>
+                    	<li>热点搜索：</li>
+                    	<li><a href="#">奇异果</a></li><li><a href="#">橙</a></li><li><a href="#">苹果</a></li><li><a href="#">葡萄</a></li><li><a href="#">桃子</a></li><li><a href="#">牛油果</a></li><li><a href="#">布林</a></li>                    </ul>
+                </div>
+            </div>
+
+           
+
+                 <div class="nav-mes">
+                                        
+                    					<div class="nav-mes-cart">
+						<a href="mycart.html" rel="nofollow">
+							<div class="menu-hd">
+						    	<div class="menu-hd1" id="cart_number">{if $shop_acount eq null}
+	0
+{else}
+	{$shop_acount}
+{/if}</div>
+			            	</div>
+			        	</a>
+
+                           </div>
+            <!--gwc end-->
+		</div>  
+
+
+
+		</div>
+</div>
+	<div class="top-box02">
+		<div class="container">
+			<div class="nav">
+				<div class="nav-all">
+					<div class="nav-all-title">
+						<a href="#">全部商品</a> <i></i>
+					</div>
+					<div class="nav-all-class statis_class">
+						<div>
+														<ul>
+																<li>
+																<a href="list-112.html">鲜果区</a>
+																</li>
+																<li>
+																<a href="list-114.html">进口鲜果</a>
+																</li>
+																<li>
+																<a href="list-113.html">国产鲜果</a>
+																</li>
+																<li>
+																<a href="list-115.html">品牌鲜果</a>
+																</li>
+																<li>
+																<a href="list-116.html">尝鲜小包装</a>
+																</li>
+															</ul>
+														<ul>
+																<li>
+																<a href="list-117.html">礼品区</a>
+																</li>
+																<li>
+																<a href="list-117.html">礼品券卡</a>
+																</li>
+																<li>
+																<a href="list-118.html">礼盒  礼篮</a>
+																</li>
+																<li>
+																<a href="list-119.html">营养套餐</a>
+																</li>
+															</ul>
+														<ul>
+																<li>
+																<a href="list-120.html">孕妈健康</a>
+																</li>
+																<li>
+																<a href="list-121.html">宝贝成长</a>
+																</li>
+																<li>
+																<a href="list-122.html">孝敬长辈</a>
+																</li>
+															</ul>
+														<ul>
+																<li>
+																<a href="list-112.html">鲜果周边</a>
+																</li>
+															</ul>
+													</div>
+					</div>
+				</div>
+				<div class="nav-other" style="font-weight:600;">
+			  <ul>
+                        <li><a href="index.html">首页</a></li>
+						<li><a href="list-112.html">鲜果区</a></li>
+						<li><a href="list-117.html">礼品区</a></li>
+                        <li style="position:relative;"><a href="#">抢鲜啦!</a><img style="position:absolute; top:4px; right:-17px;" src="images/beta.png" width="33" height="14">
+</li>
+                        <li><a href="enterprise.html" target="_blank">企业采购</a></li>
+                        <li><a href="#" target="_blank">果食</a></li>
+						<!-- <li><a href="javascript:void(0)" id="to_charge">在线充值</a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--头部导航结束-->

@@ -1,0 +1,8 @@
+2015-12-22 00:55:17.649 [time:0.0000] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:29)] [thread:4424] menu: 原始floor：6.1.
+2015-12-22 00:55:17.716 [time:0.0669] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:37)] [thread:4424] menu: 创建菜单：6.1.3.
+2015-12-22 00:55:17.716 [time:0.0676] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:42)] [thread:4424] menu: 创建菜单：INSERT INTO t_menu(m_fid,m_name,m_size,m_floor,m_photo,m_url,m_keyword,m_order,m_num) 
+				values('150','苹果',3,'6.1.3.','','','',1,'3')
+2015-12-22 00:55:45.148 [time:0.0000] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:29)] [thread:4424] menu: 原始floor：6.1.3.
+2015-12-22 00:55:45.167 [time:0.0190] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:37)] [thread:4424] menu: 创建菜单：6.1.3.1.
+2015-12-22 00:55:45.168 [time:0.0196] DEBUG [line:main.createMenu(D:\AppServ\www\sx\core\functions\MenuService.php:42)] [thread:4424] menu: 创建菜单：INSERT INTO t_menu(m_fid,m_name,m_size,m_floor,m_photo,m_url,m_keyword,m_order,m_num) 
+				values('169','富士苹果',4,'6.1.3.1.','','','',1,'1')

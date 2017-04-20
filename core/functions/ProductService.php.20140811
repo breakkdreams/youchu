@@ -1,0 +1,421 @@
+<?php
+/**
+ * 商品管理
+ */
+
+
+/**
+ * 添加商品
+ * @param $product
+ */
+function saveProduct($product){
+	$sql = "insert into shop_product(product_name,product_title,product_code,product_prompt,product_place,product_scope,product_self,
+			product_morning,product_type1,product_type2,product_type3,product_type4,brand_id,product_price1,product_price2,
+			product_weight,product_amount,discount_amount,discount_price,add_point1,add_point2,temp_price,product_temp,temp_date1,
+			temp_date2,product_content,product_top,product_units,product_logo,product_pic,vip_price,product_head,product_subhead) 
+			values('".$product['product_name']."','".$product['product_title']."','".$product['product_code']."',
+					'".$product['product_prompt']."','".$product['product_place']."','".$product['product_scope']."',
+					'".$product['product_self']."','".$product['product_morning']."','".$product['product_type1']."',
+					'".$product['product_type2']."','".$product['product_type3']."','".$product['product_type4']."',
+					'".$product['brand_id']."','".$product['product_price1']."','".$product['product_price2']."',
+					'".$product['product_weight']."','".$product['product_amount']."','".$product['discount_amount']."',
+					'".$product['discount_price']."','".$product['add_point1']."','".$product['add_point2']."',
+					'".$product['temp_price']."','".$product['product_temp']."',now(),
+					now(),'".$product['product_content']."','".$product['product_top']."',
+					'".$product['product_units']."','".$product['product_logo']."','".$product['product_pic']."','".$product['vip_price']."'
+					,'".$product['product_head']."','".$product['product_subhead']."')";
+	
+	//echo $sql;
+	
+	return SQLHelper::getInstance()->execute($sql);
+}
+
+/**
+ * 更新商品
+ * @param $product
+ */
+function updateProduct($product){
+	$sql = "update shop_product set product_name='".$product['product_name']."',
+									product_title='".$product['product_title']."',
+									product_code='".$product['product_code']."',
+									product_prompt='".$product['product_prompt']."',
+									product_place='".$product['product_place']."',
+									product_scope='".$product['product_scope']."',
+									product_self='".$product['product_self']."',
+									product_morning='".$product['product_morning']."',
+									product_type1='".$product['product_type1']."',
+									product_type2='".$product['product_type2']."',
+									product_type3='".$product['product_type3']."',
+									product_type4='".$product['product_type4']."',
+									brand_id='".$product['brand_id']."',
+									product_price1='".$product['product_price1']."',
+									product_price2='".$product['product_price2']."',
+									product_weight='".$product['product_weight']."',
+									product_amount='".$product['product_amount']."',
+									discount_amount='".$product['discount_amount']."',
+									discount_price='".$product['discount_price']."',
+									product_units='".$product['product_units']."',
+									add_point1='".$product['add_point1']."',
+									add_point2='".$product['add_point2']."',
+									temp_price='".$product['temp_price']."',
+									product_temp='".$product['product_temp']."',
+									product_content='".$product['product_content']."',
+									product_logo = '".$product['product_logo']."',
+									product_pic = '".$product['product_pic']."',
+									vip_price = '".$product['vip_price']."',
+									product_head = '".$product['product_head']."',
+									product_subhead = '".$product['product_subhead']."',
+									product_top='".$product['product_top']."' where product_id='".$product['product_id']."'";
+	
+	//echo $sql;
+	return SQLHelper::getInstance()->execute($sql);
+}
+
+/**
+ * 获取产品信息
+ * @param unknown_type $id
+ */
+function getProductInfo($id){
+	
+	$sql = "select p.*,b.brand_name,m.m_name 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id where p.product_id='$id'";
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+/**
+ * 删除产品
+ * @param $id
+ */
+function deleteProduct($id){
+	
+	$sql = "delete from shop_product where product_id=".$id;
+	
+	return SQLHelper::getInstance()->execute($sql);
+}
+
+/**
+ * 获取商品分页
+ * @param $limit
+ * @param $rowid
+ * @param $parms 
+ */
+function getProductPage($limit,$rowid,$search1='',$search2='',$search3='',$brand='',$pricemin='',$pricemax='',$search4=''){
+	$where=' where 1=1 ';
+
+	if(!empty($search1) && $search1!='0'){
+		$where = $where.' and p.product_type1 in ('.$search1.')';
+	}
+	if(!empty($search2)){
+		$where = $where." and m.m_name like '%".$search2."%'";
+	}
+	if(!empty($search3)){
+		$where = $where." and b.brand_name like '%".$search3."%'";
+	}
+	if(!empty($search4)){
+		$where = $where." and p.product_name like '%".$search4."%'";
+	}
+	//echo $brand;
+	if(!empty($brand)){
+		$where = $where.' and b.brand_id in ('.$brand.')';
+	}
+
+    if(!empty($pricemin)||!empty($pricemax)){
+    	if(empty($pricemin)){
+    		$pricemin=0;
+    	}
+        if(empty($pricemax)){
+    		$pricemax=100000000;
+    	}
+		$sql = "select * from 
+		(select distinct p.*,b.brand_name,m.m_name,t.type_price
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id
+			left join shop_product_type t on p.product_id=t.product_id
+			 $where
+			 union
+			 select distinct p.*,b.brand_name,m.m_name,t.type_price 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id
+			right join shop_product_type t on p.product_id=t.product_id
+			 $where) p
+			 where type_price between $pricemin and $pricemax or product_price1 between $pricemin and $pricemax
+			order by product_id limit ".$rowid.",".$limit." ";
+			//echo $sql;
+			return SQLHelper::getInstance()->query($sql);
+	}
+		//left join shop_product_type t on p.product_id=t.product_id
+	
+	$sql = "select distinct p.*,b.brand_name,m.m_name 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id
+			 $where 
+			order by p.product_id limit ".$rowid.",".$limit." ";
+
+	//echo $sql;
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+function getProductLimit($limit,$type=''){
+	$where=' where 1=1 ';
+
+	if(!empty($type)){
+		$where = $where.' and p.product_type1 in ('.$type.')';
+	}
+		
+	$sql = "select p.*,b.brand_name,m.m_name 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id ".$where." 
+			order by p.product_id limit ".$limit." ";
+
+	//echo $sql;
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+/**
+ * 获取商品总数
+ */
+function getProductCount($search1='',$search2='',$search3='',$brand='',$pricemin='',$pricemax='',$search4=''){
+	$where=' where 1=1 ';
+
+	if(!empty($search1) && $search1!='0'){
+		$where = $where.' and p.product_type1 in ('.$search1.')';
+	}
+	
+	if(!empty($search2)){
+		$where = $where." and m.m_name like '%".$search2."%'";
+	}
+	if(!empty($search3)){
+		$where = $where." and b.brand_name like '%".$search3."%'";
+	}
+	if(!empty($search4)){
+		$where = $where." and p.product_name like '%".$search4."%'";
+	}
+    if(!empty($brand)){
+		$where = $where.' and b.brand_id in ('.$brand.')';
+	}
+    if(!empty($pricemin)||!empty($pricemax)){
+    	if(empty($pricemin)){
+    		$pricemin=0;
+    	}
+        if(empty($pricemax)){
+    		$pricemax=100000000;
+    	}
+		$sql = "select count(1) from 
+		(select distinct p.*,b.brand_name,m.m_name,t.type_price
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id
+			left join shop_product_type t on p.product_id=t.product_id
+			 $where
+			 union
+			 select distinct p.*,b.brand_name,m.m_name,t.type_price 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id
+			right join shop_product_type t on p.product_id=t.product_id
+			 $where) p
+			 where type_price between $pricemin and $pricemax or product_price1 between $pricemin and $pricemax";
+			//echo $sql;
+			return SQLHelper::getInstance()->queryObject($sql);
+	}
+	$sql = "select count(1) 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id $where ";
+	
+	return SQLHelper::getInstance()->queryObject($sql);
+}
+
+/**
+ * 获取商品列表
+ * @param $m_id 栏目ID
+ */
+function getProductList($m_id=''){
+	$where=' where 1=1 ';
+
+	if(!empty($m_id) && $m_id!='0'){
+		$where = $where.' and t.m_id in ('.$m_id.')';
+	}
+	
+	$sql = "select p.product_id,p.product_name,t.m_name from shop_product p
+			left join t_menu t on p.product_type1=t.m_id ".$where." order by m_name";
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+/**
+ * 获取商品列表
+ * @param $m_id 栏目ID
+ */
+function getProductSearch($product_name=''){
+	$where=' where 1=1 ';
+
+	if(!empty($product_name)){
+		$where = $where." and p.product_name like '%".$product_name."%'";
+	}
+	
+	$sql = "select p.*,b.brand_name,m.m_name 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id ".$where;
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+function getProductListByParent($m_id=''){
+	$where=' where 1=1 ';
+
+	if(!empty($m_id) && $m_id!='0'){
+		$where = $where.' and t.m_id in (select m_id from t_menu where m_fid='.$m_id.')';
+	}
+	
+	$sql = "select p.product_id,p.product_name,p.product_pic,p.product_price1,t.m_name from shop_product p
+			left join t_menu t on p.product_type1=t.m_id ".$where." order by m_name";
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+
+/**
+ * 设置产品是否参加活动
+ * @param $type
+ * @param $id
+ * @param $v
+ */
+function updateProductType($type,$id,$v='0'){
+	
+	$sql = "update shop_product set product_type".$type."='".$v."' where product_id=".$id;
+	return SQLHelper::getInstance()->execute($sql);
+}
+
+function getProductByType($type){
+	$sql = "select product_id,product_name,product_pic,product_price1,product_price2 from shop_product where product_type".$type."=1 limit 4" ;
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+/*
+ * 获取子类商品类别以数组形式返回
+ * @param $search
+ * @param &$arrID
+ */
+function getSubItem($search,&$arrID){
+	 $sql="select m_id,m_fid from t_menu where m_fid in(".$search.");";
+	 $col=SQLHelper::getInstance()->query($sql);
+	 if(''!=$col[0][0]){
+	      $arrfID=array();
+	      getArray($col,$arrID,0,$arrfID,1);
+	      $arrID=array_unique($arrID);
+	      $arrfID=array_unique($arrfID);
+	      $arrID=array_diff($arrID,$arrfID);
+	      $colstrid=getArrayStr($arrID,$colstrid);
+	      getSubItem($colstrid,$arrID);
+	 }
+	 else{
+	      return;
+	 }
+}
+/*
+ * 获取子类商品类别以typeid1,typeid2..形式返回
+ * @param $search
+ */
+function getSubProduct($search){
+	$arrID=array();
+	$arrID[]=$search;
+	getSubItem($search,$arrID);
+	$arrIDStr=getArrayStr($arrID,'');
+	return $arrIDStr;
+}
+/*
+ * 获取子类商品数量
+ * @param $search
+ */
+function getSubproductCount($search,$brand='',$pricemin='',$pricemax=''){
+	$arrIDStr=getSubProduct($search);
+	return getProductCount($arrIDStr,'','',$brand,$pricemin,$pricemax);
+}
+/*
+ * 获取子类商品分业页
+ * @param $limit
+ * @param $rowid
+ * @param $search 
+ */
+function getSubproductPage($limit,$rowid,$search,$brand='',$pricemin='',$pricemax=''){
+	$arrIDStr=getSubProduct($search);
+
+	return getProductPage($limit,$rowid,$arrIDStr,'','',$brand,$pricemin,$pricemax);
+}
+/**
+ * 获取子类商品列表
+ * @param $m_id 栏目ID
+ */
+function getSubproductList($search){
+		$arrIDStr=getSubProduct($search);
+	if(!empty($arrIDStr)){
+		return getProductList($arrIDStr);
+	}
+}
+function getSubproductLimit($limit,$type=''){
+	$where=' where 1=1 ';
+	
+	$type=getSubProduct($type);
+
+	if(!empty($type)){
+		$where = $where.' and p.product_type1 in ('.$type.')';
+	}
+		
+	$sql = "select p.*,b.brand_name,m.m_name 
+			from shop_product p 
+			left join shop_brand b on p.brand_id=b.brand_id 
+			left join t_menu m on p.product_type1=m.m_id ".$where." 
+			order by p.product_id limit ".$limit." ";
+
+	//echo $sql;
+	
+	return SQLHelper::getInstance()->query($sql);
+}
+function getProductListByParentAndType($m_id='',$type){
+	$where=' where 1=1 ';
+
+	if(!empty($m_id) && $m_id!='0'){
+		$where = $where.' and t.m_id in (select m_id from t_menu where m_fid='.$m_id.')'.' and p.product_type'.$type.'=1';
+	}
+	
+	$sql = "select p.product_id,p.product_name,p.product_pic,p.product_price1,t.m_name from shop_product p
+			left join t_menu t on p.product_type1=t.m_id ".$where." order by m_name";
+	return SQLHelper::getInstance()->query($sql);
+}
+/**
+ * 获取商品最高最低价
+ * @param $m_id 栏目ID
+ */
+function getSubproductPrice($search){
+	$arrIDStr=getSubProduct($search);
+	$where=' where 1=1 ';
+	$where = $where.' and product_type1 in ('.$arrIDStr.')';
+
+	$sql="select min(product_price1),max(product_price1) from shop_product".$where;
+
+	return SQLHelper::getInstance()->query($sql);
+}
+/**
+ * 获取商品品牌
+ * @param $m_id 栏目ID
+ */
+function getSubproductBrand($search){
+	$arrIDStr=getSubProduct($search);
+	$where=' where 1=1 ';
+	$where = $where.' and product_type1 in ('.$arrIDStr.')';
+
+	$sql="select distinct p.brand_id,brand_name from shop_product p left join shop_brand b on p.brand_id=b.brand_id".$where;
+
+	return SQLHelper::getInstance()->query($sql);
+}
+?>

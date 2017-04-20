@@ -1,0 +1,172 @@
+<?php 
+	session_start();
+	/**
+	 * 商品-创建
+	 */
+	
+	if(empty($_SESSION['_id'])){
+		echo '<script>window.location.href="login.php";</script>';
+	}
+	else{
+		require('../plugins.php');
+		
+		$smarty = new Smarty;
+	
+		$smarty->debugging = _debugging;
+		$smarty->caching = _caching;
+		$smarty->cache_lifetime = _cache_lifetime;
+		
+		$smarty->assign("dir",WEB_PATH);
+		$smarty->assign("head_title",'商品创建'.WEB_NAME);
+		$smarty->assign("WEB_KEYWORD",WEB_KEYWORD);
+		$smarty->assign("WEB_DESCRIBE",WEB_DESCRIBE);
+		
+		$smarty->assign('left_class_open2','');
+		$smarty->assign('left_class2',' in');
+	
+		$cmd = $_REQUEST['cmd'];
+		
+		if('create'==$cmd || 'edit'==$cmd){
+			
+			//配送地址
+			$scope = $_REQUEST["product_scope"];
+		
+			if($scope!=null && count($scope)>0){
+				
+				$my_scope = '';
+				
+				foreach ($scope as $k=>$v){ 
+					if($my_scope==''){
+						$my_scope = $v;
+					}
+					else{
+						$my_scope = $my_scope.','.$v;
+					}
+				}
+			}
+			$product = array();
+			
+			$product['product_id'] = $_REQUEST['product_id'];
+			$product['product_name'] = $_REQUEST['product_name'];
+			$product['product_title'] = $_REQUEST['product_title'];
+			$product['product_code'] = $_REQUEST['product_code'];
+			$product['product_describe'] = $_REQUEST['product_describe'];
+			$product['product_prompt'] = $_REQUEST['product_prompt'];
+			$product['product_place'] = $_REQUEST['product_place'];
+			$product['product_scope'] = $my_scope;
+			$product['product_self'] = 0;
+			$product['product_morning'] = 0;
+			$product['product_type1'] = empty($_REQUEST['product_type1'])?0:$_REQUEST['product_type1'];
+			$product['product_type2'] = empty($_REQUEST['product_type2'])?0:$_REQUEST['product_type2'];
+			$product['product_type3'] = empty($_REQUEST['product_type3'])?0:$_REQUEST['product_type3'];
+			$product['product_type4'] = empty($_REQUEST['product_type4'])?0:$_REQUEST['product_type4'];
+			$product['brand_id'] = $_REQUEST['brand_id'];
+			$product['product_price1'] = empty($_REQUEST['product_price1'])?0:$_REQUEST['product_price1'];
+			$product['product_price2'] = empty($_REQUEST['product_price2'])?0:$_REQUEST['product_price2'];
+			$product['product_weight'] = empty($_REQUEST['product_weight'])?0:$_REQUEST['product_weight'];
+			$product['product_amount'] = empty($_REQUEST['product_amount'])?0:$_REQUEST['product_amount'];
+			$product['discount_amount'] = 0;
+			$product['discount_price'] = empty($_REQUEST['discount_price'])?0:$_REQUEST['discount_price'];
+			$product['add_point1'] = empty($_REQUEST['add_point1'])?0:$_REQUEST['add_point1'];
+			$product['add_point2'] = empty($_REQUEST['add_point2'])?0:$_REQUEST['add_point2'];
+			$product['temp_price'] = empty($_REQUEST['temp_price'])?0:$_REQUEST['temp_price'];
+			$product['product_vip'] = empty($_REQUEST['product_vip'])?0:$_REQUEST['product_vip'];
+			$product['product_temp'] = 0;
+			$product['temp_date1'] = '';
+			$product['temp_date2'] = '';
+			$product['product_content'] = $_REQUEST['product_content'];
+			$product['product_top'] = 0;
+			$product['product_units'] = $_REQUEST['product_units'];
+			$product['product_logo2'] = $_REQUEST['product_logo2'];
+			$product['product_logo3'] = $_REQUEST['product_logo3'];
+			$product['product_logo4'] = $_REQUEST['product_logo4'];
+			$product['product_logo5'] = $_REQUEST['product_logo5'];
+			$product['product_logo'] = $_REQUEST['product_logo'];
+			$product['product_pic'] = $_REQUEST['product_pic'];
+			$product['product_time'] = date('y-m-d h:i:s',time());
+			$product['product_qrcode'] = $_REQUEST['product_qrcode'];
+			$product['product_pack'] = $_REQUEST['product_pack'];
+			$product['product_license'] = $_REQUEST['product_license'];
+			$product['product_ecoding'] = $_REQUEST['product_ecoding'];
+			$product['s_id'] = $_REQUEST['s_id'];
+			$product['product_online'] = 0;
+			$product['product_delete'] = 0;
+			$product['product_recommend1'] = 0;
+			$product['product_recommend2'] = 0;
+			$product['product_recommend3'] = 0;
+			$product['product_recommend4'] = 0;
+			$product['product_recommend5'] = 0;
+			$product['product_recommend6'] = 0;
+
+			$product['product_content'] = str_replace("&quot;",'',$product['product_content']);
+			$product['product_content'] = str_replace("\\&quot;",'',$product['product_content']);
+			$product['product_content'] = str_replace("\\",'',$product['product_content']);
+			
+			if('create'==$cmd){
+				$ret = saveProduct($product);
+			}else{
+				$ret = updateProduct($product);
+			}
+			
+			echo '<script>';
+			if($ret>0){	
+				echo "alert('操作成功');";	
+			}else{
+				echo "alert('操作失败');";
+			}
+			
+			if('offline'==$_REQUEST['type']){
+				echo "window.location.href='product_offline.php?page=".$_REQUEST["page"]."&product_name=".myREQUEST('productName')."';";
+			}else if('delete'==$_REQUEST['type']){
+				echo "window.location.href='product_delete.php?page=".$_REQUEST["page"]."&product_name=".myREQUEST('productName')."';";
+			}else{
+				echo "window.location.href='product_list.php?page=".$_REQUEST["page"]."&product_name=".myREQUEST('productName')."';";
+			}
+			echo '</script>';
+		}
+		else{
+			//1.品牌列表
+			$brand = getBrandList();
+			$smarty->assign("brand",$brand);
+			
+			//2.商品栏目列表
+			$menulist = getProductMenuList();
+			$smarty->assign('menulist',$menulist);
+			
+			//3.SKU列表
+			$skulist = getSKUList();
+			$smarty->assign('skulist',$skulist);
+				
+			//4.编辑时商品信息
+			$id = $_REQUEST['id'];
+			
+			//5.区域列表
+			$area = getAreaList();
+			$smarty->assign('area',$area);
+			
+			//5.商家列表
+			$business = getSellerAll();
+			$smarty->assign('business',$business);
+			
+			if(is_numeric($id)){
+				$ret = getProductInfo($id);
+				
+				foreach($ret as $map){
+					
+				}
+				$smarty->assign('map',$map);
+				$smarty->assign('cmd','edit');
+			}else{
+				$smarty->assign('cmd','create');
+			}
+			$smarty->assign('type',$_REQUEST['type']);
+			$smarty->assign('page',$_REQUEST['page']);
+			$smarty->assign('product_name',$_REQUEST['product_name']);
+			
+			require('_session.php');
+			
+			$smarty->display('templates/product_create.tpl',md5($_SERVER["REQUEST_URI"]));
+		}	
+	}
+		
+?>

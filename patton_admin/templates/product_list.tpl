@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {include file="head.tpl"}
+    {literal}
+    <style type="text/css">
+		.input1{height:28px;line-height:28px;width:400px;}
+	</style>
+	<style>
+		@import "Assets/LightFace.css";
+	</style>
+	<link rel="stylesheet" href="Assets/lightface.css" />
+	<script src="mootools/mootools-core.js"></script>
+	<script src="mootools/LightFace.js"></script>
+	<script src="mootools/LightFace.js"></script>
+	<script src="mootools/LightFace.IFrame.js"></script>
+	<script src="mootools/LightFace.Image.js"></script>
+	<script src="mootools/LightFace.Request.js"></script>
+	<script>
+	
+	</script>
+	{/literal}
+    <script type="text/javascript">
+    function deleteDetail(id,type,page,productName){
+    	
+		var confirm = new LightFace({
+			width: 250,
+			title: '确认信息',
+		keys: {
+			esc: function() { this.close(); box.unfade(); }
+		},
+			content: '是否确定删除此商品?',
+		buttons: [
+			{ title: '是', event: function() { window.location="?cmd=delete&id="+id+"&type="+type+"&page="+page+"&productName="+productName; }, color: 'green' },
+			{ title: '否', event: function() { this.close(); box.unfade(); } }
+		]
+		});
+		confirm.open();
+	}
+	function setType(type,id,checked){
+		var page = '{$page}';
+		var product_name = '{$product_name}';
+		window.location="?cmd=type&type="+type+"&id="+id+"&check="+checked+"&page="+page+"&product_name="+product_name;
+	}
+	function setOnline(id,checked){
+		var page = '{$page}';
+		var product_name = '{$product_name}';
+		window.location="?cmd=online&id="+id+"&check="+checked+"&page="+page+"&product_name="+product_name;
+	}
+
+	
+    </script>
+  </head>
+
+  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> 
+  <body class=""> 
+  <!--<![endif]-->
+    {include file="navbar.tpl"}
+    
+    {include file="left.tpl"}
+    
+
+    
+    <div class="content">
+        
+        <div class="header">
+            <div class="stats"></div>
+
+            <h1 class="page-title">桌面信息</h1>
+        </div>
+        
+                <ul class="breadcrumb">
+            <li><a href="index.php">首页</a> <span class="divider">/</span></li>
+            <li class="active">在售商品</li>
+        </ul>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                    
+
+<div class="row-fluid">
+
+    <div class="btn-toolbar">
+	<form action="" method="post">
+    	<input type="hidden" name="page" value="1">
+	    <table>
+	    	<tr>
+		    	<!--<td>
+			    	<select style="width:150px;" name="m_id">
+				    	<option value="0">全部</option>
+				    	{foreach name=list item=item from=$list1}
+				    	<option value="{$item['m_id']}" {if $m_id eq $item['m_id']}selected="selected"{/if}>{$item['m_name']}</option>
+				    	{/foreach}
+				    </select>
+			    </td>
+		    	<td>
+			    	<select style="width:150px;" name="brand_id">
+				    	<option value="0">全部</option>
+			    		{foreach name=list item=item from=$list2}
+				    	<option value="{$item['brand_id']}" {if $brand_id eq $item['brand_id']}selected="selected"{/if}>{$item['brand_name']}</option>
+				    	{/foreach}
+				    </select>
+			    </td>-->
+			    <td>
+			    <input type="text" value="{$product_name}" name="product_name" placeholder="商品名称或货号" style="width:120px;"/>
+			    </td>
+			    <td style="padding-bottom: 10px;"><input type="submit" value="查询"/></td>
+		    </tr>
+	    </table>
+	    </form>
+	</div>
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>主类别</th>
+          <th>商品名称</th>
+          <th>封面图</th>
+          <th>库存</th>
+          <th>商城价格</th>
+          <th>上架</th>
+          <th>限时抢购</th>
+          <th>猜你喜欢</th>
+          <th>超值热销</th>
+          <th>新品上架</th>
+          <th style="width: 120px;">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      	{foreach name=list item=item from=$list}
+        {if $smarty.foreach.list.iteration%2==0}
+        <tr class="my_table_tr">
+        {else}
+        <tr>
+        {/if}
+          <td>{$smarty.foreach.list.iteration}</td>
+          <td>{$item['m_name']}</td>
+          <td>{$item['product_name']}</td>
+          <td><img src="../{$item['product_pic']}"  title="{$item['product_name']}" style="height:40px;"/></td>
+          <td>{$item['product_amount']}</td>
+          <td>{$item['product_price1']}</td>
+          <td><input type="checkbox" name="" id=""  onclick="setOnline(this.value,this.checked);" {if $item['product_online'] eq '1'}checked="checked"{/if} value="{$item['product_id']}"/></td>
+          <td><input type="checkbox" name="" id=""  onclick="setType(1,this.value,this.checked);" {if $item['product_recommend1'] eq '1'}checked="checked"{/if} value="{$item['product_id']}"/></td>
+          <td><input type="checkbox" name="" id=""  onclick="setType(2,this.value,this.checked);" {if $item['product_recommend2'] eq '1'}checked="checked"{/if} value="{$item['product_id']}"/></td>
+          <td><input type="checkbox" name="" id=""  onclick="setType(3,this.value,this.checked);" {if $item['product_recommend3'] eq '1'}checked="checked"{/if} value="{$item['product_id']}"/></td>
+          <td><input type="checkbox" name="" id=""  onclick="setType(4,this.value,this.checked);" {if $item['product_recommend4'] eq '1'}checked="checked"{/if} value="{$item['product_id']}"/></td>
+          <td>
+              <a href="purchase_list.php?product_id={$item['product_id']}" title="进货管理">进货管理</a>
+              &nbsp;
+              <a href="product_create.php?id={$item['product_id']}&type=list&page={$page}&productName={$product_name}" title="编辑"><i class="icon-pencil"></i></a>
+              &nbsp;
+              <a href="#myModal" role="button" data-toggle="modal" title="删除" onclick="deleteDetail('{$item['product_id']}','list','{$page}','{$product_name}')"><i class="icon-remove"></i></a>
+          </td>
+        </tr>
+        {/foreach}
+      </tbody>
+    </table>
+</div>
+<div class="pagination">
+   {$pages}
+</div>
+
+{include file="footer.tpl"}      
+                    
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    {literal}
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+    {/literal}
+  </body>
+</html>
+
+

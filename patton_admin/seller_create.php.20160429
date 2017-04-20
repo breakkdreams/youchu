@@ -1,0 +1,94 @@
+<?php 
+	session_start();
+	/**
+	 * 商铺管理
+	 */
+	
+	if(empty($_SESSION['_id'])){
+		echo '<script>window.location.href="login.php";</script>';
+	}
+	else{
+		require('../plugins.php');
+		
+		$smarty = new Smarty;
+	
+		$smarty->debugging = _debugging;
+		$smarty->caching = _caching;
+		$smarty->cache_lifetime = _cache_lifetime;
+		
+		$smarty->assign("dir",WEB_PATH);
+		$smarty->assign("head_title",'商铺管理'.WEB_NAME);
+		$smarty->assign("WEB_KEYWORD",WEB_KEYWORD);
+		$smarty->assign("WEB_DESCRIBE",WEB_DESCRIBE);
+		
+		$smarty->assign('left_class_open9','');
+		$smarty->assign('left_class9',' in');
+	
+		//1.操作方式
+		$cmd = $_REQUEST['operator']; //create 创建 edit 编辑
+		
+		if("create"==$cmd || "edit"==$cmd){
+
+			$brand = array();
+			
+			$brand['s_id'] = $_REQUEST['brand_id'];
+			$brand['s_level'] = $_REQUEST['brand_name'];
+			$brand['s_name'] = $_REQUEST['brand_web'];
+			$brand['s_manager'] = $_REQUEST['brand_describe'];
+			$brand['s_idcard'] = $_REQUEST['brand_display'];
+			$brand['s_400'] = $_REQUEST['brand_photo'];
+			$brand['s_address'] = $_REQUEST['brand_type'];
+			$brand['s_license'] = $_REQUEST['brand_phone'];
+			$brand['s_code'] = $_REQUEST['brand_linkman'];
+			$brand['s_range'] = $_REQUEST['brand_mobile'];
+			$brand['s_logo'] = $_REQUEST['brand_b1'];
+			$brand['s_banner'] = $_REQUEST['brand_b2'];
+			$brand['s_www'] = $_REQUEST['brand_b3'];
+			$brand['s_qq'] = $_REQUEST['brand_b4'];
+			$brand['s_ww'] = $_REQUEST['brand_producer'];
+			$brand['s_applydate'] = $_REQUEST['brand_address'];
+			$brand['s_applyer'] = $_REQUEST['brand_info'];
+			$brand['s_apperphone'] = $_REQUEST['brand_license'];	
+			$brand['s_state'] = $_REQUEST['s_state'];
+			$brand['s_date'] = $_REQUEST['s_date'];
+			
+			if("create"==$cmd){
+				$ret = saveSeller($brand);
+			}else{
+				$ret = updateSeller($brand);
+			}
+			
+			echo '<script>';
+			if($ret>0){	
+				echo "alert('操作成功');";	
+			}else{
+				echo "alert('操作失败');";
+			}
+			echo "window.location.href='seller_list.php';";
+			echo '</script>';
+		}
+		else{
+			
+			$id = $_REQUEST['id'];
+			
+			if(is_numeric($id)){
+				
+				$ret = getSellerInfo($id);
+				
+				foreach($ret as $map){
+					
+				}
+				
+				$smarty->assign('map',$map);
+			}
+			
+			require('_session.php');
+			
+			$smarty->display('templates/seller_create.tpl',md5($_SERVER["REQUEST_URI"]));	
+		}		
+		
+	}
+	
+	
+	
+?>

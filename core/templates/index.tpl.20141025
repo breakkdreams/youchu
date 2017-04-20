@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>{$head_title}</title>
+<meta name="Keywords" content="{$WEB_KEYWORD}" />
+<meta name="Description" content="{$WEB_DESCRIBE}" />
+<link href="css/all_global.css" rel="stylesheet" type="text/css" />
+<link href="css/firstpage.css" rel="stylesheet" type="text/css" />
+<link href="css/listproduct.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.6.2.js" type="text/javascript"></script>
+<script src="js/topnavi.js" type="text/javascript"></script>
+<script src="js/jquery.superslide.2.1.1.js" type="text/javascript"></script>
+{literal}
+<style>
+.icon-green{ position:absolute; width:23px; height:47px; background:url(/images/bg/allpic.png) no-repeat -34px -6px; top:5px; left:5px;}
+.icon-red{ position:absolute; width:23px; height:47px; background:url(/images/bg/allpic.png) no-repeat -67px -6px; top:5px; left:5px;}
+.icon-yellow{ position:absolute; width:23px; height:47px; background:url(/images/bg/allpic.png) no-repeat -102px -6px; top:5px;left:5px;}
+/*vedio*/
+.onelist-right-gg02{ margin-bottom:10px;}
+.onelist-right-gg02 h4{ width:150px; text-align:left}
+
+#detail{width:816px;height:382px;margin-left: -408px;border:1px solid #ccc;background:#efefef; display:none; padding-left:10px;*padding-left:16px;padding-left:16px\0; border-radius: 6px;box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);height: auto !important;left: 50%;margin-top: -150px;min-height: 300px;outline: 0 none;position: fixed !important;top: 40%;padding-bottom:17px;z-index: 1050;_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop));_margin-top:200px;padding-right:2px;*padding-right:1px;padding-right:1px\0;}
+.sp_all{width:100%; height:170px; }
+#detail .tit{ display:block; cursor:move; border:0;}
+#detail .tit i{ float:right;padding:0 8px;cursor:default; cursor:pointer;}
+.onelist-right-box1{ width:201px; margin:0 auto; padding:10px 0px; cursor:pointer;}
+.top-spic a{ width:100%; height:60px; display:block}
+
+.top-smallpic{ width:1080px; margin:0 auto; height:60px;}
+/*vedio*/
+</style>
+{/literal}
+</head>
+
+<body>
+<iframe style="display: none; " id="sina_anywhere_iframe"></iframe>
+{include file="core/templates/menu.tpl"}
+<div id="pageOverlay" style="display:none;"></div>
+
+
+
+<form method="post" action="" id="login_form">
+  <input type="hidden" name="jump_url" id="jump_url" value="">
+  <input type="hidden" name="useway" id="useway" value="0">
+  <div class="loginmini-box" style="display:none;">
+     <div class="loginmini-left">
+           <div class="login-title">
+                <h3>登录嘉兴水果网</h3>
+           </div>
+           <div class="login-start">
+                <ul class="input-kuang" id="login_input">
+                    <li>手机号/邮箱<br><input type="text" name="login_email" id="login_email" placeholder="请输入手机号/邮箱"></li>
+                    <li class="text-password">
+                      	密码<br><input type="password" name="login_password" id="login_password" placeholder="请输入密码">
+
+                    </li>
+                    <li>
+
+                      <span><a href="javascript:void(0);" id="member_login" class="btn-login" style="text-decoration:none;">登 录</a></span>
+                      <span><a href="">忘记密码 &gt;</a></span>
+                    </li>
+                </ul>
+                <div class="login-other">
+                   <p>使用合作网站账号登录嘉兴水果网： </p>
+                  <ul>
+                      <li>
+                         <span><img src="images/fday_login_f01.jpg"></span>
+                         <a href="#">新浪微博</a>|
+                      </li>
+                      <li>
+                         <span><img src="images/fday_login_f02.jpg"></span>
+                         <a href="#">QQ</a>|
+                      </li>
+                      <li>
+                        <span><img src="images/fday_login_f03.jpg"></span>
+                        <a href="#">支付宝</a>
+                      </li>
+                   </ul>
+                </div>
+           </div>
+      </div>
+
+      <div class="loginmini-right">
+           <p><img src="images/minilogin.jpg" width="163" height="390" usemap="#mini_reg">
+            <map name="mini_reg" id="mini_reg">
+              <area shape="rect" coords="5,265,160,370" href="#">
+            </map>
+           </p>
+           <div class="close-icon" id="login-box-close"> </div>
+      </div>
+</div>
+
+</form>
+
+
+	<!--广告位开始-->
+     <div class="box_body" >
+	<div class="container">
+ <div class="show-banner statis_index_rotation">
+<div class="showpic-x">
+<ul class="showpic-num" style="position: relative; width: 0px; height: 0px; ">
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="http://www.0573sg.com/zt/ych/" target="_blank" position="0"><img src="images/banner1.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="#"  position="1"><img src="images/banner2.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="http://www.0573sg.com/item-102.html"  position="2"><img src="images/banner3.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="http://www.0573sg.com/item-69.html"  position="3"><img src="images/banner4.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; "><a href="http://www.0573sg.com/item-83.html"  position="4"><img src="images/banner5.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="http://www.0573sg.com/item-105.html"  position="5"><img src="images/banner6.jpg"></a></li>
+<li style="position: absolute; width: 0px; left: 0px; top: 0px; display: none; "><a href="http://www.0573sg.com/item-104.html"  position="6"><img src="images/banner7.jpg"></a></li></ul>
+					<a class="prev" href="javascript:void(0)" style="opacity: 0.1; display: none; "></a>
+					<a class="next" href="javascript:void(0)" style="opacity: 0.1; display: none; "></a>
+					<div class="num">
+						<ul><li class="">1</li><li class="">2</li><li class="">3</li><li class="">4</li><li class="on">5</li><li>6</li><li>7</li></ul>
+					</div>
+				</div>
+				<script>
+				/*鼠标移过，左右按钮显示*/
+				$(".showpic-x ").hover(function(){
+					$(this).find(".prev,.next").fadeTo("show",0.1);
+				},function(){
+					$(this).find(".prev,.next").hide();
+				})
+				/*鼠标移过某个按钮 高亮显示*/
+				$(".prev,.next").hover(function(){
+					$(this).fadeTo("show",0.7);
+				},function(){
+					$(this).fadeTo("show",0.1);
+				})
+				$(".showpic-x ").slide({ titCell:".num ul" , mainCell:".showpic-num" , effect:"fold", autoPlay:true, delayTime:700 , autoPage:true ,interTime:3500});
+				</script>
+		</div>
+		
+				<div class="show-ad statis_index_middleactive">
+			<ul>
+							<li style="margin-right:10px;">
+					<!--  -->
+					<a position="0" href="http://www.0573sg.com/item-67.html
+" >
+					<img title="" src="images/minbanner1.jpg"></a></li>
+							<li style="margin-right:10px;">
+					<!--  class="show-right" -->
+					<a position="1" href="http://www.0573sg.com/item-84.html" >
+					<img title="" src="images/minbanner2.jpg"></a></li>
+							<li>
+					<!--  -->
+					<a position="2" href="http://www.0573sg.com/item-107.html" target="_blank">
+					<img title="" src="images/minbanner3.jpg"></a></li>
+						</ul>
+		</div>
+			</div>
+                <div class="clear"></div>
+            </div>
+	<!--广告位结束-->
+
+	<!--中间产品内容开始-->
+    
+     <div   >
+	<div class="container" >
+		<div class="onelist" >
+			<div class="onelist-left">
+								<div class="onelist-cp01">
+					<div class="onelist-cp01-title">
+						<h3>优惠专区</h3>
+						<h4>
+							<a href="#">查看更多 &gt;</a>
+						</h4>
+					</div>
+					<div class="onelist-cp01-box">
+					{foreach name=list item=item from=$list1}
+					
+					{if $smarty.foreach.list.iteration % 4 == 0}
+				      <div class="onelist-pictu statis_index_listproduct" style="padding-right:0px;">
+					{else}
+					  <div class="onelist-pictu statis_index_listproduct">
+					{/if}
+		<ul>
+			<li class="cplist-p01" style="position:relative;">
+				<a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">
+					<img src="{$item['product_pic']}" width="200" height="200" />
+				</a>
+
+ <div class="icon-red"></div>
+ </li>
+			<li class="cplist-p02"><a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">{$item['product_head']}</a></li>
+			<li class="cplist-p03" style="float:none;">{$item['product_units']}</li>
+	<li class="cplist-p04"><span class="green01" style="float:left;">￥{$item['product_price1']}</span>
+				            </li>
+		</ul>
+	</div>
+	{/foreach}
+		
+	</div>
+				</div>
+				
+								<div class="onelist-cp01">
+					<div class="onelist-cp01-title">
+						<h3>新品推荐</h3>
+						<h4>
+							<a href="#">查看更多 &gt;</a>
+						</h4>
+					</div>
+					<div class="onelist-cp01-box">
+				{foreach name=list item=item from=$list2}
+					
+										{if $smarty.foreach.list.iteration % 4 == 0}
+									      <div class="onelist-pictu statis_index_listproduct" style="padding-right:0px;">
+										{else}
+										  <div class="onelist-pictu statis_index_listproduct">
+										{/if}
+							<ul>
+								<li class="cplist-p01" style="position:relative;">
+									<a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">
+										<img src="{$item['product_pic']}" width="200" height="200" />
+									</a>
+					
+					 <div class="icon-red"></div>
+					 </li>
+								<li class="cplist-p02"><a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">{$item['product_head']}</a></li>
+								<li class="cplist-p03" style="float:none;">{$item['product_units']}</li>
+						<li class="cplist-p04"><span class="green01" style="float:left;">￥{$item['product_price1']}</span>
+									            </li>
+							</ul>
+						</div>
+						{/foreach}
+					</div>
+				</div>
+				
+								<div class="onelist-cp01">
+					<div class="onelist-cp01-title">
+						<h3>安佳推荐</h3>
+						<h4>
+							<a href="#">查看更多 &gt;</a>
+						</h4>
+					</div>
+					<div class="onelist-cp01-box">
+	{foreach name=list item=item from=$list3}
+					
+					{if $smarty.foreach.list.iteration % 4 == 0}
+				      <div class="onelist-pictu statis_index_listproduct" style="padding-right:0px;">
+					{else}
+					  <div class="onelist-pictu statis_index_listproduct">
+					{/if}
+		<ul>
+			<li class="cplist-p01" style="position:relative;">
+				<a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">
+					<img src="{$item['product_pic']}" width="200" height="200" />
+				</a>
+
+ <div class="icon-red"></div>
+ </li>
+			<li class="cplist-p02"><a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">{$item['product_head']}</a></li>
+			<li class="cplist-p03" style="float:none;">{$item['product_units']}</li>
+	<li class="cplist-p04"><span class="green01" style="float:left;">￥{$item['product_price1']}</span>
+				            </li>
+		</ul>
+	</div>
+	{/foreach}
+					</div>
+				</div>
+				
+								<div class="onelist-cp01">
+					<div class="onelist-cp01-title">
+						<h3>礼品推荐</h3>
+						<h4>
+							<a href="#">查看更多 &gt;</a>
+						</h4>
+					</div>
+					<div class="onelist-cp01-box">
+	{foreach name=list item=item from=$list4}
+					
+					{if $smarty.foreach.list.iteration % 4 == 0}
+				      <div class="onelist-pictu statis_index_listproduct" style="padding-right:0px;">
+					{else}
+					  <div class="onelist-pictu statis_index_listproduct">
+					{/if}
+		<ul>
+			<li class="cplist-p01" style="position:relative;">
+				<a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">
+					<img src="{$item['product_pic']}" width="200" height="200" />
+				</a>
+
+ <div class="icon-red"></div>
+ </li>
+			<li class="cplist-p02"><a href="item-{$item['product_id']}.html" target="_blank" pid="2465" position="1001">{$item['product_head']}</a></li>
+			<li class="cplist-p03" style="float:none;">{$item['product_units']}</li>
+	<li class="cplist-p04"><span class="green01" style="float:left;">￥{$item['product_price1']}</span>
+				            </li>
+		</ul>
+	</div>
+	{/foreach}
+					</div>
+				</div>
+
+			</div>
+
+			<div class="onelist-right" style="margin-right:10px;">
+								<div class="notice">
+					<div class="notice-title">
+						<span class="notice-title-one">网站公告</span>
+						<span class="notice-title-two">
+							<a href="#">更多 &gt;</a>
+						</span>
+					</div>
+					<div class="notice-body">
+						<ul style="margin-top: 0px; ">
+	                        	                            <li><a href="#" class="ad_link" target="_blank">上海仓满赠、充值产品切换公告</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">上海仓满赠、充值产品切换公告</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">0元购阳光金果活动说明</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">全仓赠品切换公告</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">果园小插曲——发票机闹情绪</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">成都仓全场满200元赠品切换公告</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">成都仓全场满200元赠品切换公告</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">0元购樱桃活动发货说明</a></li>
+	                        	                            <li><a href="#" class="ad_link" target="_blank">在线充值单笔满1000元赠品活动变更</a></li>
+	                        	                    <li><a href="#" class="ad_link" target="_blank">深圳仓充值1000元赠新奇士澳大利亚脐橙20个装</a><img src="images/new_icon.jpg"></li><li><a href="#" class="ad_link" target="_blank">深圳仓满300元赠品切换</a><img src="images/new_icon.jpg"></li><li><a href="#" class="ad_link" target="_blank">上海仓满300元赠品切换公告</a><img src="images/new_icon.jpg"></li><li><a href="#" class="ad_link" target="_blank">果园APP系统维护</a></li></ul> 
+					</div>
+				</div>
+												<div class="onelist-right-gg01 statis_index_rightactive">
+					<ul>
+											<li><a href="#" target="_blank" position="0"><img title="哈根达斯" src="images/1409192115_pic.jpg">
+						</a></li>
+											<li><a href="#" target="_blank" position="1"><img title="亲友会" src="images/1408081984_pic.jpg">
+						</a></li>
+											<li><a href="javascript:void(0);" style="cursor:default" position="2"><img title="上海仓满300元赠新西兰柠檬2斤价值48元" src="images/1408944310_pic.jpg">
+						</a></li>
+											<li><a href="#" target="_blank" position="3"><img title="充值赠品 送佳沛新西兰绿奇异果原装" src="images/1399520265_pic.jpg">
+						</a></li>
+											<li><a href="#" target="_blank" position="4"><img title="注册有礼 送积分 够实惠" src="images/1396714085_pic.jpg">
+						</a></li>
+											<li><a href="#" target="_blank" position="5"><img title="APP" src="images/1409229558_pic.jpg">
+						</a></li>
+										</ul>
+				</div>
+				
+
+								<div class="onelist-right-gg02">
+              	<!--修改-->
+                    <div class="title_1">
+                   <h4>《果食》鲜果微电影</h4><span><a class="statis_index_media" position="0" href="#" target="_blank" rel="nofollow">MORE+</a></span>
+                   </div>
+                   <div class="onelist-right-box1 statis_index_media" position="1">
+                   <img src="images/youku.jpg" width="201" height="157">
+                   </div>
+                <!--第一个视频开始-->
+                <div id="detail">
+                    <div class="tit"><i class="closes"><img src="images/fancy_closebox.png" width="30" height="30"></i></div>
+                        <iframe id="fday_mv" src="" width="800" height="451" scrolling="no" marginheight="0" frameborder="0"></iframe>
+                </div>
+                <!--第一个视频结束-->
+             	   <div class="title_1  statis_index_hotproduct">
+                   <h4>热销人气商品</h4><span><a href="#" pid="1" position="0">MORE+</a></span>
+                   </div>
+                   <div class="onelist-right-box  statis_index_hotproduct">
+                             {foreach name=list item=item from=$right}
+							    <div class="Browse_box1 ">
+									<dl>
+									<dt><a target="_blank" href="http://www.0573sg.com/item-{$item['product_id']}.html"><img src="{$item['product_pic']}" width="80" height="78" /></a></dt>
+									<dd>
+										<a target="_blank" href="http://www.0573sg.com/item-{$item['product_id']}.html">{$item['product_name']}</a>
+									</dd>
+									<dd class="font_2">现价：￥{$item['product_price1']}</dd>
+													<dd class="old-price">原价：￥{$item['product_price2']}</dd>
+													</dl>
+							    </div>
+						      {/foreach}
+                                                                           
+                                        </div>
+                
+              </div>
+							</div>
+
+		</div>
+	</div>
+    </div>
+    </div>
+    </div>
+       <div class="clear"></div>
+    </div>
+      <div class="clear clearfix"></div>
+    </div>
+	<!--中间产品内容结束-->
+
+{include file="core/templates/footer.tpl"}
+<!--footer  end-->
+</body>
+
+</html>

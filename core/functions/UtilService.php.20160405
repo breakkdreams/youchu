@@ -1,0 +1,41 @@
+<?php
+/**
+ * 工具类
+ */
+
+/**
+ * 以逗号分隔的形式获取数组信息
+ */
+function getArrayStr($col,$colstr){
+	foreach($col as $value){
+		 if(''==$colstr){
+			 $colstr.=$value;    	        	
+		  }else{
+			  $colstr.=",".$value;
+	      }
+	}
+	return $colstr;
+}
+/**
+ *拆分数组
+ */
+function getArray($array,&$arr1,$index1,&$arr2,$index2){
+	foreach($array as $value){
+		$arr1[]=$value[$index1];
+		$arr2[]=$value[$index2];
+	}
+}
+function getLength($num){
+	$num=floor(abs($num));
+	$countor=0;
+	while($num/10>0){
+		$countor++;
+		$num/=10;
+		$num=floor($num);
+		if($countor>10){
+			break;
+		}	
+	}
+	return $countor;	
+}
+?>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>{$head_title}</title>
+<meta name="Keywords" content="{$WEB_KEYWORD}" />
+<meta name="Description" content="{$WEB_DESCRIBE}" />
+{include file="member_head.tpl"}
+</head>
+
+<body>
+<!--头部导航开始-->
+{include file="menu.tpl"}
+<!--头部导航开始-->
+
+<!--用户中心开始-->
+<div class="user-container">
+     <div class="user-box">
+
+          {include file="member_left.tpl"}    
+ 
+          
+          <div class="user-box-right">
+               <div class="user-right-title">
+                    <a href="">首页</a>
+                    <span class="juli">&gt;</span>
+                    <a href="#">我的账户</a>
+                     &gt;   <a href="#">我的积分</a>
+</div>
+
+<div class="jifeng">你当前的积分为<span class="green">83.5</span>元</div>
+
+<table width="935" height="243" border="0" cellpadding="0" cellspacing="1" class="guanzhu" >
+  <tr class="guantitle" >
+    <td width="602" height="35" >交易记录</td>
+    <td width="75">积分</td>
+    <td width="252">备注</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"  class="guancon" >
+    <td height="105" class="jia"><img src="images/11.jpg" width="60" height="60" /><span>佳沛新西兰甜心绿奇异果</span></td>
+    <td class="feng">52</td>
+    <td class="feng">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"  class="guancon" >
+    <td height="105" class="jia"><img src="images/11.jpg" width="60" height="60" /><span>佳沛新西兰甜心绿奇异果</span></td>
+    <td class="feng">52</td>
+    <td class="feng">&nbsp;</td>
+  </tr>
+  <tr bgcolor="#FFFFFF"  class="guancon" >
+    <td height="105" class="jia"><img src="images/11.jpg" width="60" height="60" /><span>佳沛新西兰甜心绿奇异果</span></td>
+    <td class="feng">52</td>
+    <td class="feng">&nbsp;</td>
+  </tr>
+</table>
+
+          </div>
+     
+     </div>
+</div>
+<!--用户中心结束-->
+
+
+<!--footer  start-->
+{include file="footer.tpl"}
+<!--footer  end-->
+</body></html>

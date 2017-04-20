@@ -1,0 +1,29 @@
+RewriteEngine on 
+
+
+RewriteRule ^/?index.html$ index\.php [L]
+RewriteRule ^/?list_([0-9]+)_([0-9]+).html$ core/list\.php?type=$1&page=$2 [L]
+RewriteRule ^/?register.html$ core/register\.php [L]
+RewriteRule ^/?login.html$ core/login\.php [L]
+RewriteRule ^/?mycart.html$ core/mycart\.php [L]
+RewriteRule ^/?mycart2.html$ core/mycart2\.php [L]
+RewriteRule ^/?mycart2_2.html$ core/mycart2_2\.php [L]
+RewriteRule ^/?mycart3_([0-9]+).html$ core/mycart3\.php?id=$1 [L]
+RewriteRule ^/?page-([0-9]+).html$ core/page\.php?id=$1 [L]
+RewriteRule ^/?detail_([0-9]+).html$ core/detail\.php?id=$1 [L]
+RewriteRule ^/?comment_([0-9]+)_([0-9]+).html$ core/comment\.php?id=$1&page=$2 [L]
+
+RewriteRule ^/?tickets.html$ core/tickets\.php [L]
+RewriteRule ^/?tuan.html$ core/tuan\.php [L]
+RewriteRule ^/?taocan.html$ core/taocan\.php [L]
+RewriteRule ^/?qianggou.html$ core/qianggou\.php [L]
+
+RewriteRule ^/?help_([a-z0-9]+).html$ core/help\.php?act=$1 [L]
+
+RewriteRule ^/?product-list-([0-9]+)-([0-9]+)\.html\?*(.*)$ core/product-list\.php?type=$1&page=$2&$4
+RewriteRule ^/?product_([0-9]+).html$ core/product\.php?id=$1 [L]
+
+RewriteRule ^/?member_order_info_([0-9]+).html$ core/member_order_info\.php?id=$1 [L]
+RewriteRule ^/?member_order_list_([0-9]+).html$ core/member_order_list\.php?page=$1 [L]
+RewriteRule ^/?member_info.html$ core/member_info\.php [L]
+RewriteRule ^/?member_password.html$ core/member_password\.php [L]

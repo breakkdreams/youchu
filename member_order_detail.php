@@ -1,0 +1,54 @@
+<?php 
+	session_start();
+	/**
+	 * 订单详情首页
+	 */
+	require('plugins.php');
+	
+	
+	
+	if(!empty($_SESSION['_shop_login_id'])){
+		
+		$smarty = new Smarty;
+		
+		$smarty->debugging = _debugging;
+		$smarty->caching = _caching;
+		$smarty->cache_lifetime = _cache_lifetime;
+		
+		$smarty->assign("dir",WEB_PATH);
+		$smarty->assign("head_title",'我的账户-生鲜网 '.WEB_NAME);
+		$smarty->assign("WEB_KEYWORD",WEB_KEYWORD);
+		$smarty->assign("WEB_DESCRIBE",WEB_DESCRIBE);
+		
+		$smarty->assign("member_left_class1",'class="account_feature feature_choose"');
+		
+		$id = $_REQUEST['id'];
+		
+		if(is_numeric($id)){
+			
+			//1.订单主信息
+			$ret = getOrderInfo($_SESSION['_shop_login_id'],$id);
+			
+			if(!empty($ret) && count($ret)==1){
+				$map = $ret[0];
+				
+				//2.订单商品信息
+				$list = getOrderInfoList($map['order_code']);
+				
+				$smarty->assign("map",$map);
+				$smarty->assign("list",$list);
+			}
+			else{
+				$smarty->assign("error",'true');
+			}
+		}
+		else{
+			$smarty->assign("error",'true');
+		}
+		require('_session.php');
+		$smarty->display('core/templates/member_order_detail.tpl',md5($_SERVER["REQUEST_URI"]));
+	}else{
+		echo '<script>window.location.href="login.php";</script>';	
+	}
+	
+?>
